@@ -762,19 +762,7 @@ style="background-color: #f0dddf;" data-image="images/IMG_0407.JPG"></span>
         <div class="container page-content">
             <h2>Your Cart</h2>
             <ul class="cart-items">
-                <li class="cart-item">
-                    <span>Keychains</span>
-                    <span>$12.99</span>
-                </li>
-                <li class="cart-item">
-                    <span>Cherry Lip Oil</span>
-                    <span>$22.99</span>
-                </li>
-                <li class="cart-item">
-                    <span>Bow Tie Bonnets</span>
-                    <span>$25.00</span>
-                </li>
-            </ul>
+                </ul>
         </div>
     </div>
 
@@ -968,27 +956,21 @@ style="background-color: #f0dddf;" data-image="images/IMG_0407.JPG"></span>
                 'Flower Claw Clips': 7.50,
                 'Tote Bags': 14.07,
             };
-
+            
             const conversionRates = {
                 usd; 1,
                 jmd; 155.00 
             };
 
             let currentCurrency = 'jmd'; 
-
             const currencyButton = document.querySelector('.currency-button');
             const currencyLinks = document.querySelectorAll('.currency-dropdown a');
-
             const updatePrices = () => {
                 const productCards = document.querySelectorAll('.card');
-
                 productCards.forEach(card => {
                     const productName = card.querySelector('h3').textContent.trim();
                     const priceElement = card.querySelector('.price');
-
-                    
                     const usdPrice = pricesInUSD[productName];
-
                     if (usdPrice !== undefined) {
                         let convertedPrice = usdPrice * conversionRates[currentCurrency];
                         let currencySymbol = currentCurrency == 'usd' ? '$' : 'JMD$';
@@ -1002,17 +984,69 @@ style="background-color: #f0dddf;" data-image="images/IMG_0407.JPG"></span>
                     e.preventDefault();
                     const newCurrency = e.target.getAttribute('data-currency');
                     currentCurrency = newCurrency;
-
-
                     currencyButton.textContent = newCurrency.toUpperCase();
-
-
                     updatePrices();
                 });
             });
 
-
             updatePrices();
+            const cartSection = document.getElementById('cart-section');
+            const cartItemsList = document.querySelector('.cart-items');
+            const addToCartButtons = document.querySelectorAll('.add-to-cart-button');
+            const viewCartButton = document.querySelector('.view-cart-button');
+            const mainContent = document.getElementById('main-content');
+            const cartTotalElement = document.getElementById('cart-total');
+            let cart = [];
+            const updateCartDisplay = () => {
+                cartItemsList.innerHTML = '';
+                let total = 0
+                cart.forEach(item => {
+                    const li = document.createElement('li');
+                    li.classList.add('cart-item');
+                    let priceText = '';
+                    if (currentCurrency === 'jmd') {
+                        priceText = 'JMD$${(item.price * conversionRates.jmd.toFixed(2)}';
+                    } else {
+                        priceText = '$$(item.price.toFixed(2)}';
+                    }
+
+                    li.innerHTML = 
+                        <span>${item.name}</span>
+                        <span>${priceText}</span>
+                    ';
+                    cartItemsList.appendChild(li);
+                    total += item.price;
+            });
+
+            if (cartTotalElement) {
+                const convertedTotal = total * conversionRates[currentCurrency];
+                let currencySymbol = 'Total: ${currencySymbol}${convertedTotal.toFixed(2)}';
+            }
+        };
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const card = e.target.closest(',card');
+                const productName = card.querySelector('h3').textContent.trim();
+                const priceText = card.querySelector('.price').textContent;
+                const price = parseFloat(priceText.replace(/[^0-9.]/g, ''));
+                const existingItem = cart.find(item => item.name === productName);
+                if (!existingItem) {
+                    cart.push({ name: productName, price: pricesInUSD[productName] });
+                }
+
+                updateCartDisplay():
+            });
+        });
+
+        if (viewCartButton) {
+            viewCartButton.addEventListener('Click', () => {
+                mainContent.style.display = 'none';
+                cartSection.style.display = 'block';
+                updateCartDisplay();
+            });
+        }
+ });        
 
             // All function calls to make the swatches interactive
             setupColorSwatches('keychain-colors', 'keychain-image');
