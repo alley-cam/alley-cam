@@ -931,7 +931,7 @@ style="background-color: #f0dddf;" data-image="images/IMG_0407.JPG"></span>
                     });
                 }
             };
-           // Flavour swatch functionality for products
+           // Flavour swatch functionally for products
             const setupFlavourSwatches = (containerId, imageId) => {
                 const container = document.getElementById(containerId);
                 const image = document.getElementById(imageId);
@@ -949,6 +949,70 @@ style="background-color: #f0dddf;" data-image="images/IMG_0407.JPG"></span>
                     });
                 }
             };
+
+            const pricesInUSD = {
+                'Turtle Keychain': 0.94,
+                'Dice Keychain': 0.63,
+                'Tennis Racket and Ball Keychan': 0.63,
+                'Exfoliating Gloves': 1.88,
+                'Large Hair Bow': 3.13,
+                'Cherry Lip Oil': 2.19,
+                'Elf Crystal Clear Lip Oil': 5.00,
+                'Elf Grape Squeeze Me Lip Balm': 7.50,
+                'Elf Peach Squeeze Me Lip Balm': 7.50,
+                'NK Strawberry Lip Gloss': 2.19,
+                'NK Mint Lip Gloss': 2.19,
+                'NK Bubble-gun Lip Gloss': 2.19,
+                'Vaseline Lip Therapy Balm': 2.19,
+                'Bow Tie Bonnets': 4.69,
+                'Flower Claw Clips': 7.50,
+                'Tote Bags': 14.07,
+            };
+
+            const conversionRates = {
+                usd; 1,
+                jmd; 155.00 
+            };
+
+            let currentCurrency = 'jmd'; 
+
+            const currencyButton = document.querySelector('.currency-button');
+            const currencyLinks = document.querySelectorAll('.currency-dropdown a');
+
+            const updatePrices = () => {
+                const productCards = document.querySelectorAll('.card');
+
+                productCards.forEach(card => {
+                    const productName = card.querySelector('h3').textContent.trim();
+                    const priceElement = card.querySelector('.price');
+
+                    
+                    const usdPrice = pricesInUSD[productName];
+
+                    if (usdPrice !== undefined) {
+                        let convertedPrice = usdPrice * conversionRates[currentCurrency];
+                        let currencySymbol = currentCurrency == 'usd' ? '$' : 'JMD$';
+                        priceElement.textContent = '${currencySymbol}${convertedPrice.toFixed(2)}';
+                    }
+                });
+            };
+
+            currencyLinks.forEach(Link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const newCurrency = e.target.getAttribute('data-currency');
+                    currentCurrency = newCurrency;
+
+
+                    currencyButton.textContent = newCurrency.toUpperCase();
+
+
+                    updatePrices();
+                });
+            });
+
+
+            updatePrices();
 
             // All function calls to make the swatches interactive
             setupColorSwatches('keychain-colors', 'keychain-image');
