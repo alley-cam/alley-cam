@@ -837,22 +837,27 @@ style="background-color: #f0dddf;" data-image="images/IMG_0407.JPG"></span>
                 e.preventDefault();
                 showSection(homeSection);
             });
+            
             shopLink.addEventListener('click', (e) => {
                 e.preventDefault();
                 showSection(shopAllSection);
             });
+            
             aboutLink.addEventListener('click', (e) => {
                 e.preventDefault();
                 showSection(aboutSection);
             });
+            
             contactLink.addEventListener('click', (e) => {
                 e.preventDefault();
                 showSection(contactSection);
             });
+            
             cartLink.addEventListener('click', (e) => {
                 e.preventDefault();
                 showSection(cartSection);
             });
+            
             shopNowButton.addEventListener('click', (e) => {
                 e.preventDefault();
                 showSection(shopAllSection);
@@ -930,6 +935,7 @@ style="background-color: #f0dddf;" data-image="images/IMG_0407.JPG"></span>
                             Array.from(container.children).forEach(swatch => {
                                 swatch.classList.remove('active');
                             });
+                            
                             target.classList.add('active');
                             image.src = target.getAttribute('data-image');
                             image.alt = `A ${target.getAttribute('data-flavour')} version of the product.`;
@@ -937,7 +943,7 @@ style="background-color: #f0dddf;" data-image="images/IMG_0407.JPG"></span>
                     });
                 }
             };
-
+            
             const pricesInUSD = {
                 'Turtle Keychain': 0.94,
                 'Dice Keychain': 0.63,
@@ -1047,7 +1053,6 @@ style="background-color: #f0dddf;" data-image="images/IMG_0407.JPG"></span>
             });
         }
  });        
-
             // All function calls to make the swatches interactive
             setupColorSwatches('keychain-colors', 'keychain-image');
             setupColorSwatches('bonnet-colors', 'bonnet-image');
