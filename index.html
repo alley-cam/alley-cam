@@ -796,271 +796,229 @@ style="background-color: #f0dddf;" data-image="images/IMG_0407.JPG"></span>
         </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Get references to all the sections and navigation links
-            const homeLink = document.getElementById('home-link');
-            const shopLink = document.getElementById('shop-link');
-            const aboutLink = document.getElementById('about-link');
-            const contactLink = document.getElementById('contact-link');
-            const cartLink = document.getElementById('cart-link'); // Added a reference to the cart link
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get references to all the sections and navigation links
+        const homeLink = document.getElementById('home-link');
+        const shopLink = document.getElementById('shop-link');
+        const aboutLink = document.getElementById('about-link');
+        const contactLink = document.getElementById('contact-link');
+        const cartLink = document.getElementById('cart-link');
 
-            const homeSection = document.getElementById('home-section');
-            const shopAllSection = document.getElementById('shop-all-section');
-            const aboutSection = document.getElementById('about-section');
-            const cartSection = document.getElementById('cart-section'); // Added a reference to the cart section
-            const contactSection = document.getElementById('contact-section'); // Added a reference to the contact section
+        const homeSection = document.getElementById('home-section');
+        const shopAllSection = document.getElementById('shop-all-section');
+        const aboutSection = document.getElementById('about-section');
+        const cartSection = document.getElementById('cart-section');
+        const contactSection = document.getElementById('contact-section');
 
-            // Modal elements
-            const modal = document.getElementById('message-modal');
-            const closeButton = document.querySelector('.close-button');
-            const modalText = document.getElementById('modal-text'); // Renamed modalTex to modalText
+        // Modal elements
+        const modal = document.getElementById('message-modal');
+        const closeButton = document.querySelector('.close-button');
+        const modalText = document.getElementById('modal-text');
 
-            const shopNowButton = document.getElementById('hero-shop-all-button');
+        const shopNowButton = document.getElementById('hero-shop-all-button');
 
-            // All the pages on the site.
-            const allSections = [homeSection, shopAllSection, aboutSection, cartSection, contactSection];
+        // All the pages on the site.
+        const allSections = [homeSection, shopAllSection, aboutSection, cartSection, contactSection];
 
-            // Function to show a specific section and hide all others
-            const showSection = (sectionToShow) => {
-                allSections.forEach(section => {
-                    if (section.id === sectionToShow.id) {
-                        section.style.display = 'block';
-                    } else {
-                        section.style.display = 'none';
-                    }
-                });
-            };
-
-            // Event listeners for navigation links
-            homeLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                showSection(homeSection);
+        // Function to show a specific section and hide all others
+        const showSection = (sectionToShow) => {
+            allSections.forEach(section => {
+                if (section.id === sectionToShow.id) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
             });
-            
-            shopLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                showSection(shopAllSection);
-            });
-            
-            aboutLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                showSection(aboutSection);
-            });
-            
-            contactLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                showSection(contactSection);
-            });
-            
-            cartLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                showSection(cartSection);
-            });
-            
-            shopNowButton.addEventListener('click', (e) => {
-                e.preventDefault();
-                showSection(shopAllSection);
-            });
+        };
 
-            // Modal functionality
-            const showModal = (message) => {
-                modalText.textContent = message;
-                modal.style.display = 'block';
-            };
+        // Event listeners for navigation links
+        homeLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showSection(homeSection);
+        });
+        
+        shopLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showSection(shopAllSection);
+        });
+        
+        aboutLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showSection(aboutSection);
+        });
+        
+        contactLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showSection(contactSection);
+        });
+        
+        cartLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showSection(cartSection);
+        });
+        
+        shopNowButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            showSection(shopAllSection);
+        });
 
-            closeButton.addEventListener('click', () => {
+        // Modal functionality
+        const showModal = (message) => {
+            modalText.textContent = message;
+            modal.style.display = 'block';
+        };
+
+        closeButton.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
                 modal.style.display = 'none';
-            });
+            }
+        });
 
-            window.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.style.display = 'none';
-                }
-            });
+        // Filter and currency dropdown logic
+        const filterSelector = document.getElementById('filter-selector');
+        const currencySelector = document.getElementById('currency-selector');
+        const filterButton = filterSelector.querySelector('.filter-button');
+        const currencyButton = currencySelector.querySelector('.currency-button');
 
-            // Filter and currency dropdown logic
-            const filterSelector = document.getElementById('filter-selector');
-            const currencySelector = document.getElementById('currency-selector');
-            const filterButton = filterSelector.querySelector('.filter-button');
-            const currencyButton = currencySelector.querySelector('.currency-button');
+        filterButton.addEventListener('click', () => {
+            filterSelector.classList.toggle('active');
+        });
 
-            filterButton.addEventListener('click', () => {
-                filterSelector.classList.toggle('active');
-            });
+        currencyButton.addEventListener('click', () => {
+            currencySelector.classList.toggle('active');
+        });
 
-            currencyButton.addEventListener('click', () => {
-                currencySelector.classList.toggle('active');
-            });
-
-            // Handle Buy Now button clicks
-            document.querySelectorAll('.buy-button').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    // In a real e-commerce site, this would add an item to a shopping cart.
-                    // For now, we'll just show a message.
-                    showModal('Product has been added to your cart!');
-                });
-            });
-
-            // Color swatch functionality for products
-            const setupColorSwatches = (containerId, imageId) => {
-                const container = document.getElementById(containerId);
-                const image = document.getElementById(imageId);
-                if (container && image) {
-                    container.addEventListener('click', (e) => {
-                        const target = e.target;
-                        if (target.classList.contains('color-swatch')) {
-                            // Remove active class from all swatches in this container
-                            Array.from(container.children).forEach(swatch => {
-                                swatch.classList.remove('active');
-                            });
-                            // Add active class to the clicked swatch
-                            target.classList.add('active');
-                            // Change the main product image based on the data-image attribute
-                            image.src = target.getAttribute('data-image');
-                            image.alt = `A ${target.getAttribute('data-color')} version of the product.`;
-                        }
-                    });
-                }
-            };
-           // Flavour swatch functionally for products
-            const setupFlavourSwatches = (containerId, imageId) => {
-                const container = document.getElementById(containerId);
-                const image = document.getElementById(imageId);
-                if (container && image) {
-                    container.addEventListener('click', (e) => {
-                        const target = e.target;
-                        if (target.classList.contains('flavour-swatch')) {
-                            Array.from(container.children).forEach(swatch => {
-                                swatch.classList.remove('active');
-                            });
-                            
-                            target.classList.add('active');
-                            image.src = target.getAttribute('data-image');
-                            image.alt = `A ${target.getAttribute('data-flavour')} version of the product.`;
-                        }
-                    });
-                }
-            };
-            
-            const pricesInUSD = {
-                'Turtle Keychain': 0.94,
-                'Dice Keychain': 0.63,
-                'Tennis Racket and Ball Keychan': 0.63,
-                'Exfoliating Gloves': 1.88,
-                'Large Hair Bow': 3.13,
-                'Cherry Lip Oil': 2.19,
-                'Elf Crystal Clear Lip Oil': 5.00,
-                'Elf Grape Squeeze Me Lip Balm': 7.50,
-                'Elf Peach Squeeze Me Lip Balm': 7.50,
-                'NK Strawberry Lip Gloss': 2.19,
-                'NK Mint Lip Gloss': 2.19,
-                'NK Bubble-gun Lip Gloss': 2.19,
-                'Vaseline Lip Therapy Balm': 2.19,
-                'Bow Tie Bonnets': 4.69,
-                'Flower Claw Clips': 7.50,
-                'Tote Bags': 14.07,
-            };
-            
-            const conversionRates = {
-                usd; 1,
-                jmd; 155.00 
-            };
-
-            let currentCurrency = 'jmd'; 
-            const currencyButton = document.querySelector('.currency-button');
-            const currencyLinks = document.querySelectorAll('.currency-dropdown a');
-            const updatePrices = () => {
-                const productCards = document.querySelectorAll('.card');
-                productCards.forEach(card => {
-                    const productName = card.querySelector('h3').textContent.trim();
-                    const priceElement = card.querySelector('.price');
-                    const usdPrice = pricesInUSD[productName];
-                    if (usdPrice !== undefined) {
-                        let convertedPrice = usdPrice * conversionRates[currentCurrency];
-                        let currencySymbol = currentCurrency == 'usd' ? '$' : 'JMD$';
-                        priceElement.textContent = '${currencySymbol}${convertedPrice.toFixed(2)}';
+        // Color swatch functionality for products
+        const setupColorSwatches = (containerId, imageId) => {
+            const container = document.getElementById(containerId);
+            const image = document.getElementById(imageId);
+            if (container && image) {
+                container.addEventListener('click', (e) => {
+                    const target = e.target;
+                    if (target.classList.contains('color-swatch')) {
+                        // Remove active class from all swatches in this container
+                        Array.from(container.children).forEach(swatch => {
+                            swatch.classList.remove('active');
+                        });
+                        // Add active class to the clicked swatch
+                        target.classList.add('active');
+                        // Change the main product image based on the data-image attribute
+                        image.src = target.getAttribute('data-image');
+                        image.alt = `A ${target.getAttribute('data-color')} version of the product.`;
                     }
                 });
-            };
-
-            currencyLinks.forEach(Link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const newCurrency = e.target.getAttribute('data-currency');
-                    currentCurrency = newCurrency;
-                    currencyButton.textContent = newCurrency.toUpperCase();
-                    updatePrices();
-                });
-            });
-
-            updatePrices();
-            const cartSection = document.getElementById('cart-section');
-            const cartItemsList = document.querySelector('.cart-items');
-            const addToCartButtons = document.querySelectorAll('.add-to-cart-button');
-            const viewCartButton = document.querySelector('.view-cart-button');
-            const mainContent = document.getElementById('main-content');
-            const cartTotalElement = document.getElementById('cart-total');
-            let cart = [];
-            const updateCartDisplay = () => {
-                cartItemsList.innerHTML = '';
-                let total = 0
-                cart.forEach(item => {
-                    const li = document.createElement('li');
-                    li.classList.add('cart-item');
-                    let priceText = '';
-                    if (currentCurrency === 'jmd') {
-                        priceText = 'JMD$${(item.price * conversionRates.jmd.toFixed(2)}';
-                    } else {
-                        priceText = '$$(item.price.toFixed(2)}';
-                    }
-
-                    li.innerHTML = 
-                        <span>${item.name}</span>
-                        <span>${priceText}</span>
-                    ';
-                    cartItemsList.appendChild(li);
-                    total += item.price;
-            });
-
-            if (cartTotalElement) {
-                const convertedTotal = total * conversionRates[currentCurrency];
-                let currencySymbol = 'Total: ${currencySymbol}${convertedTotal.toFixed(2)}';
             }
         };
 
-        addToCartButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                const card = e.target.closest(',card');
+        // Flavour swatch functionally for products
+        const setupFlavourSwatches = (containerId, imageId) => {
+            const container = document.getElementById(containerId);
+            const image = document.getElementById(imageId);
+            if (container && image) {
+                container.addEventListener('click', (e) => {
+                    const target = e.target;
+                    if (target.classList.contains('flavour-swatch')) {
+                        Array.from(container.children).forEach(swatch => {
+                            swatch.classList.remove('active');
+                        });
+                        
+                        target.classList.add('active');
+                        image.src = target.getAttribute('data-image');
+                        image.alt = `A ${target.getAttribute('data-flavour')} version of the product.`;
+                    }
+                });
+            }
+        };
+        
+        const pricesInUSD = {
+            'Turtle Keychains': 0.94,
+            'Dice Keychain': 0.63,
+            'Tennis Racket and Ball Keychain': 0.63,
+            'Exfoliating Gloves': 1.88,
+            'Large Hair Bow': 3.13,
+            'Cherry Lip Oil': 2.19,
+            'Elf Crystal Clear Lip Oil': 5.00,
+            'Elf Grape Squeeze Me Lip Balm': 7.50,
+            'Elf Peach Squeeze Me Lip Balm': 7.50,
+            'NK Strawberry Lip Gloss': 2.19,
+            'NK Mint Lip Gloss': 2.19,
+            'NK Bubble-gum Lip Gloss': 2.19,
+            'Vaseline Lip Therapy Balm': 2.19,
+            'Bow Tie Bonnets': 4.69,
+            'Flower Claw Clips': 7.50,
+            'Tote Bags': 14.07,
+        };
+        
+        const conversionRates = {
+            usd: 1,
+            jmd: 155.00
+        };
+
+        let currentCurrency = 'jmd';
+        const currencyLinks = document.querySelectorAll('.currency-dropdown a');
+
+        const updatePrices = () => {
+            const productCards = document.querySelectorAll('.card');
+            productCards.forEach(card => {
                 const productName = card.querySelector('h3').textContent.trim();
-                const priceText = card.querySelector('.price').textContent;
-                const price = parseFloat(priceText.replace(/[^0-9.]/g, ''));
-                const existingItem = cart.find(item => item.name === productName);
-                if (!existingItem) {
-                    cart.push({ name: productName, price: pricesInUSD[productName] });
+                const priceElement = card.querySelector('.price');
+                const usdPrice = pricesInUSD[productName];
+                if (usdPrice !== undefined) {
+                    let convertedPrice = usdPrice * conversionRates[currentCurrency];
+                    let currencySymbol = currentCurrency === 'usd' ? '$' : 'JMD$';
+                    priceElement.textContent = `${currencySymbol}${convertedPrice.toFixed(2)}`;
                 }
+            });
+        };
 
-                updateCartDisplay():
+        currencyLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const newCurrency = e.target.getAttribute('data-currency');
+                currentCurrency = newCurrency;
+                currencyButton.textContent = newCurrency.toUpperCase();
+                updatePrices();
             });
         });
 
-        if (viewCartButton) {
-            viewCartButton.addEventListener('Click', () => {
-                mainContent.style.display = 'none';
-                cartSection.style.display = 'block';
-                updateCartDisplay();
+        updatePrices();
+        
+        const cartItemsList = document.querySelector('.cart-items');
+        const buyButtons = document.querySelectorAll('.buy-button');
+        let cart = [];
+
+        buyButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const card = e.target.closest('.card');
+                const productName = card.querySelector('h3').textContent.trim();
+                const productPriceUSD = pricesInUSD[productName];
+
+                if (productPriceUSD !== undefined) {
+                    const existingItem = cart.find(item => item.name === productName);
+                    if (existingItem) {
+                        showModal(`${productName} is already in your cart!`);
+                    } else {
+                        cart.push({ name: productName, price: productPriceUSD });
+                        showModal(`${productName} has been added to your cart!`);
+                    }
+                }
             });
-        }
- });        
-            // All function calls to make the swatches interactive
-            setupColorSwatches('keychain-colors', 'keychain-image');
-            setupColorSwatches('bonnet-colors', 'bonnet-image');
-            setupColorSwatches('glove-colors', 'exfoliating-glove-image');
-            setupColorSwatches('bow-colors', 'hair-bow-image');
-            setupColorSwatches('tote-bag-colors', 'tote-bag-image');
-            setupFlavourSwatches('lip-balm-flavours', 'vaseline-lip-therapy-image');
         });
-    </script>
+
+        // All function calls to make the swatches interactive
+        setupColorSwatches('keychain-colors', 'keychain-image');
+        setupColorSwatches('bonnet-colors', 'bonnet-image');
+        setupColorSwatches('glove-colors', 'exfoliating-glove-image');
+        setupColorSwatches('bow-colors', 'hair-bow-image');
+        setupColorSwatches('tote-bag-colors', 'tote-bag-image');
+        setupFlavourSwatches('lip-balm-flavours', 'vaseline-lip-therapy-image');
+    });
+</script>
 </body>
 </html>
