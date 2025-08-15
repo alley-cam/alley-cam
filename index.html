@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alley Accessories</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="https://storage.googleapis.com/gwm-uploaded-files/Alley.png" type="image/x-icon">
+    <style>
+        /* General body styling for a clean, professional look */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff0f5; /* Changed to an extremely light pink */
+            color: #333; /* Text color changed to dark for readability */
+            line-height: 1.6;
+        }
+
+        /* Container to center the content and apply a max-width */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header styling with a logo, navigation, and a subtle drop shadow */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 2px solid #e9967a; /* Lighter border color */
+            margin-bottom: 20px;
+            background-color: #fdf7e9; /* Changed to a warm cream color */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Logo text style */
+        .logo {
+            font-family: 'Playfair Display', serif; /* Changed font to Playfair Display */
+            font-size: 2.5em;
+            font-weight: 700; /* Bolder font weight for legibility */
+            color: #3e2f2e; /* Dark text for contrast on light background */
+            text-decoration: none;
+            padding-left: 20px;
+        }
+        
+        /* Navigation links */
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #3e2f2e; /* Dark text for contrast on light background */
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer; /* Added cursor to indicate interactivity */
+        }
+        
+        .nav-links a:hover {
+            color: #c96c4d; /* Warm burnt orange on hover */
+        }
+
+        /* --- Cart Icon Styling --- */
+        /* Container for the new cart icon, making it a subtle circle button */
+        .cart-link {
+            margin-left: 20px;
+            padding: 8px;
+            border: 1px solid #3e2f2e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        /* Hover state for the cart button */
+        .cart-link:hover {
+            background-color: #c96c4d;
+            border-color: #c96c4d;
+            cursor: pointer;
+        }
+
+        /* Styling for the cart icon itself */
+        .cart-icon {
+            width: 16px;
+            height: 16px;
+            fill: #3e2f2e;
+            transition: fill 0.3s ease;
+        }
+
+        /* Hover state for the icon inside the button */
+        .cart-link:hover .cart-icon {
+            fill: #fff;
+        }
+
+        /* Hero section - the main, eye-catching part of the page */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background-color: #fdf7e9; /* Changed back to match header color */
+            color: #3e2f2e; /* Changed to a darker color for readability */
+            border-radius: 8px;
+            margin-bottom: 40px;
+            position: relative;
+            /* New flexbox properties for image and text arrangement */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px; /* Adds space between the headline, paragraph, and button */
+        }
+
+        /* Hero text styling */
+        .hero h1 {
+            font-family: 'Playfair Display', serif; /* Changed font to Playfair Display */
+            font-weight: 700; /* Bolder font weight for legibility */
+            font-size: 3.5em;
+            margin: 0; /* Removed bottom margin since gap is used */
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0; /* Removed margin since gap is used */
+        }
+
+        /* Styling for the new "Shop Now" button */
+        .shop-now-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #c96c4d; /* Use the burnt orange accent color */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .shop-now-button:hover {
+            background-color: #a6583d; /* Darken the color on hover */
+            transform: translateY(-2px); /* Add a subtle lift effect */
+        }
+
+        /* Main content sections with flexible display for multiple items */
+        .main-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* New class for the horizontal layout on the home page */
+        .home-products-grid {
+            display: flex;
+            flex-direction: row; /* Ensure horizontal layout */
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+            justify-content: space-around;
+            gap: 20px;
+        }
+        
+        .products-heading {
+            width: 100%;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #3e2f2e;
+            margin-bottom: 20px;
+        }
+
+        /* Individual content cards for products or features */
+        .card {
+            background-color: #f0dddf;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 20px;
+            flex: 1 1 300px; /* Allow cards to grow and shrink responsively */
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        /* New styling to control card width for a more uniform look */
+        .home-products-grid .card {
+            width: calc(33.333% - 20px); /* Adjust width for 3 cards per row with gap */
+            max-width: 300px;
+            flex: none; /* Override the default flex behavior to use explicit width */
+        }
+
+        .card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-family: 'Montserrat', sans-serif; /* New font for the card headings */
+            font-weight: 700;
+            color: #3e2f2e; /* Changed to a deep brown */
+            font-size: 1.5em;
+            margin: 0 0 10px;
+        }
+
+        /* Styling for the payment buttons */
+        .buy-button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #007bff; /* A nice blue for the button */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .buy-button:hover {
+            background-color: #0056b3;
+        }
+
+        .price {
+            font-size: 1.2em;
+            color: #555;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+
+        /* Footer styling */
+        .footer {
+            text-align: center; /* Reverted to 'center' */
+            padding: 20px;
+            border-top: 2px solid #e9967a; /* Lighter border color */
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #333; /* Dark text for readability */
+            background-color: #fdf7e9; /* Changed to match the header color */
+        }
+        
+        /* New social links styling for the footer */
+        .social-links {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .social-links a {
+            color: #3e2f2e;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            display: inline-flex; /* Use flexbox for icon and text alignment */
+            align-items: center;
+            gap: 5px; /* Add a small gap between the icon and text */
+        }
+        
+        .social-links a:hover {
+            color: #c96c4d; /* Match the accent color */
+        }
+        
+        /* New styling for image-based social media logos */
+        .social-links img.logo-img {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover img.logo-img {
+            transform: scale(1.1); /* Add a slight zoom effect on hover */
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        /* New styling for the social links on the home page */
+        .social-links-home {
+            text-align: center;
+            padding: 20px;
+            background-color: #fdf7e9;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        /* --- New styles for Cart and Contact Pages --- */
+        .page-content {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .page-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            color: #3e2f2e;
+            margin-bottom: 20px;
+        }
+        
+        .contact-details {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            font-size: 1.2em;
+        }
+
+        .cart-items {
+            list-style: none;
+            padding: 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-links {
+                margin-top: 10px;
+            }
+            .nav-links a {
+                margin: 0 10px;
+            }
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            /* Stack home page cards vertically on small screens */
+            .home-products-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            /* Make cards full width on mobile */
+            .home-products-grid .card {
+                width: 100%;
+            }
+        }
+
+        /* New styles for the filter and currency buttons */
+        .shop-controls {
+            display: flex;
+            justify-content: flex-end; /* Align to the right */
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .filter-button, .currency-button {
+            background-color: #c96c4d;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .filter-button:hover, .currency-button:hover {
+            background-color: #a6583d;
+        }
+        
+        /* Filter and Currency Dropdown Base Styles */
+        .filter-selector, .currency-selector {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .filter-dropdown, .currency-dropdown {
+            display: none;
+            position: absolute;
+            background-color: #fdf7e9;
+            min-width: 120px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            right: 0;
+            border-radius: 5px;
+            overflow: hidden;
+            top: 100%; /* Position below the button */
+        }
+        
+        .filter-dropdown a, .currency-dropdown a {
+            color: #3e2f2e;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .filter-dropdown a:hover, .currency-dropdown a:hover {
+            background-color: #e9967a;
+            color: #fff;
+        }
+        
+        /* Show dropdown on hover or when active class is applied by JS */
+        .filter-selector:hover .filter-dropdown,
+        .filter-selector.active .filter-dropdown {
+            display: block;
+        }
+
+        .currency-selector:hover .currency-dropdown,
+        .currency-selector.active .currency-dropdown {
+            display: block;
+        }
+
+        /* Simple modal for messages */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* New styles for the color swatches */
+        .color-options {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .color-swatch {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .color-swatch:hover {
+            transform: scale(1.1);
+        }
+
+        .color-swatch.active {
+            border-color: #3e2f2e; /* Highlight the active swatch */
+            box-shadow: 0 0 0 2px #c96c4d; /* Add a subtle glow */
+        }
+         /* New styles for the flavour swatches */
+        .flavour-options {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .flavour-swatch {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .flavour-swatch:hover {
+            transform: scale(1.1);
+        }
+
+        .flavour-swatch.active {
+            border-color: #3e2f2e;
+            box-shadow: 0 0 0 2px #c96c4d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <a href="#" class="logo">
+                <img src="images/alleyaccessorieslogo.jpeg" alt="Alley Accessories Logo" style="height: 50px;">
+            </a>
+            <div class="nav-links">
+                <a href="#" id="home-link">Home</a>
+                <a href="#" id="shop-link">Shop All</a>
+                <a href="#" id="about-link">About</a>
+                <a href="#" id="contact-link">Contact</a>
+                <a href="#" id="cart-link" class="cart-link">
+                    <svg class="cart-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 2L3 6V20C3 20.5304 3.21071 21.0391 3.58579 21.4142C3.96086 21.7893 4.46957 22 5 22H19C19.5304 22 20.0391 21.7893 20.4142 21.4142C20.7893 21.0391 21 20.5304 21 20V6L18 2H6Z" stroke="#3e2f2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3 6H21" stroke="#3e2f2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 6V20" stroke="#3e2f2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8 10V14" stroke="#3e2f2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 10V14" stroke="#3e2f2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="home-section">
+        <div class="hero">
+            <h1>Elevate Your Everyday Style</h1>
+            <p>Accessories that tell a story. Find the perfect piece for any occasion.</p>
+            <a href="#" class="shop-now-button" id="hero-shop-all-button">Shop Now</a>
+        </div>
+        
+        <div class="container main-content">
+            <h2 class="products-heading">Featured Products</h2>
+            <div class="home-products-grid">
+                <div class="card">
+                    <div>
+                        <img src="images/IMG_0405.JPG" alt="A vibrant pink stylish tote bag.">
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/IMG_0391.WEBP" alt="A clear lip oil tube with a red cherry-like tint.">
+                </div>
+                <div class="card">
+                    <img src="images/IMG_0425.JPG" alt="A tennis racket and ball keychain on white background.">
+                </div>
+            </div>
+        </div>
+
+        <div class="container social-links-home">
+            <h2>Find Us on Social Media</h2>
+            <div class="social-links">
+                <a href="#">
+                    <img src="images/instagramlogo.png" alt="Instagram Logo" class="logo-img">
+                </a>
+                <a href="#">
+                    <img src="images/Tiktoklogo.png" alt="TikTok Logo" class="logo-img">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="shop-all-section" style="display: none;">
+        <div class="container">
+            <div class="shop-controls">
+                <div class="filter-selector" id="filter-selector">
+                    <button class="filter-button">Filter By</button>
+                    <div class="filter-dropdown">
+                        <a href="#" data-filter="product">By Product</a>
+                        <a href="#" data-filter="price">By Price</a>
+                    </div>
+                </div>
+                
+                <div class="currency-selector" id="currency-selector">
+                    <button class="currency-button">JMD</button>
+                    <div class="currency-dropdown">
+                        <a href="#" data-currency="usd">USD</a>
+                        <a href="#" data-currency="jmd">JMD</a>
+                    </div>
+                </div>
+            </div>
+            <h2 class="products-heading">Our Full Collection</h2>
+            <div class="main-content">
+                <div class="card">
+                    <img id="keychain-image" src="images/IMG_0397.JPG" alt="A blue turtle keychain.">
+                    <h3>Turtle Keychains</h3>
+                    <div class="color-options" id="keychain-colors">
+                        <span class="color-swatch active" data-color="blue" style="background-color: #f0dddf;" data-image="images/IMG_0397.JPG"></span>
+                        <span class="color-swatch" data-color="pink" style="background-color: #f0dddf;" data-image="images/IMG_0398.JPG"></span>
+                        <span class="color-swatch" data-color="purple" style="background-color: #f0dddf;" data-image="images/IMG_0399.JPG"></span>
+                        <span class="color-swatch" data-color="brown" style="background-color: #f0dddf;" data-image="images/IMG_0396.JPG"></span>
+                    </div>
+                    <p class="price">$0.94</p>
+                    <a href="#" class="buy-button">Buy Now</a>
+                </div>
+                <div class="card">
+                     <img src="images/IMG_0426.JPG" alt="A dice keychain.">
+                     <h3>Dice Keychain</h3>
+                     <p class="price">$0.63</p>
+                     <a href="#" class="buy-button">Buy Now</a>
+                </div>
+                <div class="card">
+                   <img src="images/IMG_0425.JPG" alt=" A tennis racket keychain.">
+                   <h3>Tennis Racket and Ball Keychain</h3>
+                   <p class="price">$0.63</p>
+                   <a href="#" class="buy-button">Buy Now</a>
+                </div>
+                <div class="card">
+                    <img id="exfoliating-glove-image" src="images/IMG_0429.WEBP" alt="A vibrant pink exfoliating glove.">
+                    <h3> Exfoliating Gloves</h3>
+                   <div class="color-options" id="glove-colors">
+                       <span class="color-swatch active" data-color="pink"
+style="background-color: #f0dddf;" data-image="images/IMG_0429.WEBP"></span>
+                       <span class="color-swatch" data-color="blue"
+style="background-color: #f0dddf;" data-image="images/IMG_0428.AVIF"></span>
+                       <span class="color-swatch" data-color="purple"
+style="background-color: #f0dddf;" data-image="images/IMG_0427.AVIF"></span>
+                    </div>
+                    <p class="price">$1.88</p>
+                    <a href="#" class="buy-button">Buy Now</a>
+                </div>
+                <div class="card">
+                    <img id="hair-bow-image" src="images/IMG_0419.WEBP" alt="A large black hair bow.">
+                    <h3>Large Hair Bow</h3>
+                    <div class="color-options" id="bow-colors">
+                        <span class="color-swatch active" data-color="black"
+style="background-color: #f0dddf;" data-image="images/IMG_0419.WEBP"></span>
+                        <span class="color-swatch" data-color="white"
+style="background-color: #f0dddf;" data-image="images/IMG_0420.WEBP"></span>
+                    </div>
+                    <p class="price">$3.13</p>
+                    <a href="#" class="buy-button">Buy Now</a>
+                </div>
+                <div class="card">
+                    <img src="images/IMG_0391.WEBP" alt="A clear lip oil tube with a red cherry-like tint.">
+                    <h3>Cherry Lip Oil</h3>
+                    <p class="price">$2.19</p>
+                    <a href="#" class="buy-button">Buy Now</a>
+                </div>
+                <div class="card">
+                    <img src="images/IMG_0400.JPG" alt="A clear and nourishing lip oil.">
+                    <h3>Elf Crystal Clear Lip Oil</h3>
+                    <p class="price">$5.00</p>
+                    <a href="#" class="buy-button">Buy Now</a>
+                </div>
+                <div class="card">
+                    <img src="images/IMG_0404.JPG" alt="A purple tinted lip balm with grape flavour.">
+                    <h3>Elf Grape Squeeze Me Lip Balm</h3>
+                    <p class="price">$7.50</p>
+                    <a href="#" class="buy-button">Buy Now</a>
+                </div>
+                <div class="card">
+                    <img src="images/IMG_0409.JPG" alt="A peach flavoured glowing lip balm.">
+                    <h3>Elf Peach Squeeze Me Lip Balm</h3>
+                    <p class="price">$7.50</p>
+                    <a href="#" class="buy-button">Buy Now</a>
+                </div>
+                <div class="card">
+                    <img src="images/IMG_0401.JPG" alt="A strawberry flavoured tinted lip gloss.">
+                    <h3>NK Strawberry Lip Gloss</h3>
+                    <p class="price">$2.19</p>
+                    <a href="#" class="buy-button">Buy Now</a>
+                </div>
+                <div class="card">
+                    <img src="images/IMG_0403.JPG" alt="A mint flavoured lip gloss.">
+                    <h3>NK Mint Lip Gloss</h3>
+                    <p class="price">$2.19</p>
+                    <a href="#" class="buy-button">Buy Now</a>
+                </div>
+                <div class="card">
+                    <img src="images/IMG_0402.JPG" alt=" A bubble-gum flavoured lip gloss.">
+                    <h3>NK Bubble-gum Lip Gloss</h3>
+                    <p class="price">$2.19</p>
+                    <a href="#" class="buy-button">Buy Now</a>
+                </div>	
+                <div class="card">
+                    <img id="vaseline-lip-therapy-image" src="images/IMG_0431.JPG" alt="A moisturizing lip balm.">
+                    <h3>Vaseline Lip Therapy Balm</h3>
+                    <div class="flavour-options" id="lip-balm-flavours">
+                        <span class="flavour-swatch active" data-flavour="original"
+style="background-color: #f0dddf;" data-image="images/IMG_0431.JPG"></span>
+                        <span class="flavour-swatch" data-flavour="aloe vera"
+style="background-color: #f0dddf;" data-image="images/IMG_0430.AVIF"></span>
+                        <span class="flavour-swatch" data-flavour="cocoa butter"
+style="background-color: #f0dddf;" data-image="images/IMG_0432.JPG"></span>
+                        <span class="flavour-swatch" data-flavour="rosy lips"
+style="background-color: #f0dddf;" data-image="images/IMG_0433.WEBP"></span>
+                    </div>
+                    <p class="price">$2.19</p>
+                    <a href="#"class="buy-button">Buy Now</a>
+                </div>
+                <div class="card">
+                    <img id="bonnet-image" src="images/IMG_0392.WEBP" alt="A silk bow tie bonnet.">
+                    <h3>Bow Tie Bonnets</h3>
+                    <div class="color-options" id="bonnet-colors">
+                        <span class="color-swatch active" data-color="pink" style="background-color: #f0dddf;" data-image="images/IMG_0392.WEBP"></span>
+                        <span class="color-swatch" data-color="black" style="background-color: #f0dddf;" data-image="images/IMG_0395.WEBP"></span>
+                        <span class="color-swatch" data-color="blue" style="background-color: #f0dddf;" data-image="images/IMG_0394.WEBP"></span>
+                        <span class="color-swatch" data-color="purple" style="background-color: #f0dddf;" data-image="images/IMG_0393.WEBP"></span>
+                        <span class="color-swatch" data-color="brown" style="background-color: #f0dddf;" data-image="images/IMG_0423.PNG"></span>
+                    </div>
+                    <p class="price">$4.69</p>
+                    <a href="#" class="buy-button">Buy Now</a>
+                </div>
+                <div class="card">
+                    <img src="images/IMG_0418.JPG" alt="A variety of solid colored claw clips.">
+                    <h3>Flower Claw Clips</h3>
+                    <p class="price">$7.50</p>
+                    <a href="#" class="buy-button">Buy Now</a>
+                </div>
+                <div class="card">
+                    <img id="tote-bag-image" src="images/IMG_0406.JPG" alt="A stylish, black tote bag with a geometric pattern.">
+                    <h3>Tote Bags</h3>
+                    <div class="color-options" id="tote-bag-colors">
+                      <span class="color-swatch" data-color="black"
+style="background-color: #f0dddf;" data-image="images/IMG_0406.JPG"></span>
+                      <span class="color-swatch" data-color="pink"
+style="background-color: #f0dddf;" data-image="images/IMG_0405.JPG"></span>
+                      <span class="color-swatch" data-color="white"
+style="background-color: #f0dddf;" data-image="images/IMG_0407.JPG"></span>
+                    </div>
+                    <p class="price">$14.07</p>
+                    <a href="#" class="buy-button">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="about-section" style="display: none;">
+        <div class="container page-content">
+            <img src="images/alleyaccessorieslogo.jpeg" alt="Alley Accessories Logo" style="max-width: 100%; height: auto; margin-bottom: 20px;">
+            <h2>Our Story</h2>
+            <p style="max-width: 700px; margin: 0 auto;">Alley Accessories was born out of a passion for unique and stylish pieces that complete any look. We believe that accessories are more than just items; they are a form of self-expression. Our mission is to provide high-quality, beautiful accessories that help you express your individual style.</p>
+        </div>
+    </div>
+
+    <div id="cart-section" style="display: none;">
+        <div class="container page-content">
+            <h2>Your Cart</h2>
+            <ul class="cart-items">
+                </ul>
+        </div>
+    </div>
+
+    <div id="contact-section" style="display: none;">
+        <div class="container page-content">
+            <h2>Contact Us</h2>
+            <div class="contact-details">
+                <p>We'd love to hear from you! Feel free to reach out with any questions.</p>
+                <p>Email: <a href="mailto:accessoriesbyalley@gmail.com">accessoriesbyalley@gmail.com</a></p>
+                <div class="social-links">
+                    <p>Find us on social media:</p>
+                    <a href="#">
+                        <img src="images/instagramlogo.png" alt="Instagram Logo" class="logo-img">
+                    </a>
+                    <a href="#">
+                        <img src="images/Tiktoklogo.png" alt="TikTok Logo" class="logo-img">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 Alley Accessories. All rights reserved.</p>
+    </div>
+
+    <div id="message-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <p id="modal-text">This is a placeholder message.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get references to all the sections and navigation links
+            const homeLink = document.getElementById('home-link');
+            const shopLink = document.getElementById('shop-link');
+            const aboutLink = document.getElementById('about-link');
+            const contactLink = document.getElementById('contact-link');
+            const cartLink = document.getElementById('cart-link'); // Added a reference to the cart link
+
+            const homeSection = document.getElementById('home-section');
+            const shopAllSection = document.getElementById('shop-all-section');
+            const aboutSection = document.getElementById('about-section');
+            const cartSection = document.getElementById('cart-section'); // Added a reference to the cart section
+            const contactSection = document.getElementById('contact-section'); // Added a reference to the contact section
+
+            // Modal elements
+            const modal = document.getElementById('message-modal');
+            const closeButton = document.querySelector('.close-button');
+            const modalText = document.getElementById('modal-text'); // Renamed modalTex to modalText
+
+            const shopNowButton = document.getElementById('hero-shop-all-button');
+
+            // All the pages on the site.
+            const allSections = [homeSection, shopAllSection, aboutSection, cartSection, contactSection];
+
+            // Function to show a specific section and hide all others
+            const showSection = (sectionToShow) => {
+                allSections.forEach(section => {
+                    if (section.id === sectionToShow.id) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+            };
+
+            // Event listeners for navigation links
+            homeLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                showSection(homeSection);
+            });
+            
+            shopLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                showSection(shopAllSection);
+            });
+            
+            aboutLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                showSection(aboutSection);
+            });
+            
+            contactLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                showSection(contactSection);
+            });
+            
+            cartLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                showSection(cartSection);
+            });
+            
+            shopNowButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                showSection(shopAllSection);
+            });
+
+            // Modal functionality
+            const showModal = (message) => {
+                modalText.textContent = message;
+                modal.style.display = 'block';
+            };
+
+            closeButton.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+
+            // Filter and currency dropdown logic
+            const filterSelector = document.getElementById('filter-selector');
+            const currencySelector = document.getElementById('currency-selector');
+            const filterButton = filterSelector.querySelector('.filter-button');
+            const currencyButton = currencySelector.querySelector('.currency-button');
+
+            filterButton.addEventListener('click', () => {
+                filterSelector.classList.toggle('active');
+            });
+
+            currencyButton.addEventListener('click', () => {
+                currencySelector.classList.toggle('active');
+            });
+
+            // Handle Buy Now button clicks
+            document.querySelectorAll('.buy-button').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    // In a real e-commerce site, this would add an item to a shopping cart.
+                    // For now, we'll just show a message.
+                    showModal('Product has been added to your cart!');
+                });
+            });
+
+            // Color swatch functionality for products
+            const setupColorSwatches = (containerId, imageId) => {
+                const container = document.getElementById(containerId);
+                const image = document.getElementById(imageId);
+                if (container && image) {
+                    container.addEventListener('click', (e) => {
+                        const target = e.target;
+                        if (target.classList.contains('color-swatch')) {
+                            // Remove active class from all swatches in this container
+                            Array.from(container.children).forEach(swatch => {
+                                swatch.classList.remove('active');
+                            });
+                            // Add active class to the clicked swatch
+                            target.classList.add('active');
+                            // Change the main product image based on the data-image attribute
+                            image.src = target.getAttribute('data-image');
+                            image.alt = `A ${target.getAttribute('data-color')} version of the product.`;
+                        }
+                    });
+                }
+            };
+           // Flavour swatch functionally for products
+            const setupFlavourSwatches = (containerId, imageId) => {
+                const container = document.getElementById(containerId);
+                const image = document.getElementById(imageId);
+                if (container && image) {
+                    container.addEventListener('click', (e) => {
+                        const target = e.target;
+                        if (target.classList.contains('flavour-swatch')) {
+                            Array.from(container.children).forEach(swatch => {
+                                swatch.classList.remove('active');
+                            });
+                            
+                            target.classList.add('active');
+                            image.src = target.getAttribute('data-image');
+                            image.alt = `A ${target.getAttribute('data-flavour')} version of the product.`;
+                        }
+                    });
+                }
+            };
+            
+            const pricesInUSD = {
+                'Turtle Keychain': 0.94,
+                'Dice Keychain': 0.63,
+                'Tennis Racket and Ball Keychan': 0.63,
+                'Exfoliating Gloves': 1.88,
+                'Large Hair Bow': 3.13,
+                'Cherry Lip Oil': 2.19,
+                'Elf Crystal Clear Lip Oil': 5.00,
+                'Elf Grape Squeeze Me Lip Balm': 7.50,
+                'Elf Peach Squeeze Me Lip Balm': 7.50,
+                'NK Strawberry Lip Gloss': 2.19,
+                'NK Mint Lip Gloss': 2.19,
+                'NK Bubble-gun Lip Gloss': 2.19,
+                'Vaseline Lip Therapy Balm': 2.19,
+                'Bow Tie Bonnets': 4.69,
+                'Flower Claw Clips': 7.50,
+                'Tote Bags': 14.07,
+            };
+            
+            const conversionRates = {
+                usd; 1,
+                jmd; 155.00 
+            };
+
+            let currentCurrency = 'jmd'; 
+            const currencyButton = document.querySelector('.currency-button');
+            const currencyLinks = document.querySelectorAll('.currency-dropdown a');
+            const updatePrices = () => {
+                const productCards = document.querySelectorAll('.card');
+                productCards.forEach(card => {
+                    const productName = card.querySelector('h3').textContent.trim();
+                    const priceElement = card.querySelector('.price');
+                    const usdPrice = pricesInUSD[productName];
+                    if (usdPrice !== undefined) {
+                        let convertedPrice = usdPrice * conversionRates[currentCurrency];
+                        let currencySymbol = currentCurrency == 'usd' ? '$' : 'JMD$';
+                        priceElement.textContent = '${currencySymbol}${convertedPrice.toFixed(2)}';
+                    }
+                });
+            };
+
+            currencyLinks.forEach(Link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const newCurrency = e.target.getAttribute('data-currency');
+                    currentCurrency = newCurrency;
+                    currencyButton.textContent = newCurrency.toUpperCase();
+                    updatePrices();
+                });
+            });
+
+            updatePrices();
+            const cartSection = document.getElementById('cart-section');
+            const cartItemsList = document.querySelector('.cart-items');
+            const addToCartButtons = document.querySelectorAll('.add-to-cart-button');
+            const viewCartButton = document.querySelector('.view-cart-button');
+            const mainContent = document.getElementById('main-content');
+            const cartTotalElement = document.getElementById('cart-total');
+            let cart = [];
+            const updateCartDisplay = () => {
+                cartItemsList.innerHTML = '';
+                let total = 0
+                cart.forEach(item => {
+                    const li = document.createElement('li');
+                    li.classList.add('cart-item');
+                    let priceText = '';
+                    if (currentCurrency === 'jmd') {
+                        priceText = 'JMD$${(item.price * conversionRates.jmd.toFixed(2)}';
+                    } else {
+                        priceText = '$$(item.price.toFixed(2)}';
+                    }
+
+                    li.innerHTML = 
+                        <span>${item.name}</span>
+                        <span>${priceText}</span>
+                    ';
+                    cartItemsList.appendChild(li);
+                    total += item.price;
+            });
+
+            if (cartTotalElement) {
+                const convertedTotal = total * conversionRates[currentCurrency];
+                let currencySymbol = 'Total: ${currencySymbol}${convertedTotal.toFixed(2)}';
+            }
+        };
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const card = e.target.closest(',card');
+                const productName = card.querySelector('h3').textContent.trim();
+                const priceText = card.querySelector('.price').textContent;
+                const price = parseFloat(priceText.replace(/[^0-9.]/g, ''));
+                const existingItem = cart.find(item => item.name === productName);
+                if (!existingItem) {
+                    cart.push({ name: productName, price: pricesInUSD[productName] });
+                }
+
+                updateCartDisplay():
+            });
+        });
+
+        if (viewCartButton) {
+            viewCartButton.addEventListener('Click', () => {
+                mainContent.style.display = 'none';
+                cartSection.style.display = 'block';
+                updateCartDisplay();
+            });
+        }
+ });        
+            // All function calls to make the swatches interactive
+            setupColorSwatches('keychain-colors', 'keychain-image');
+            setupColorSwatches('bonnet-colors', 'bonnet-image');
+            setupColorSwatches('glove-colors', 'exfoliating-glove-image');
+            setupColorSwatches('bow-colors', 'hair-bow-image');
+            setupColorSwatches('tote-bag-colors', 'tote-bag-image');
+            setupFlavourSwatches('lip-balm-flavours', 'vaseline-lip-therapy-image');
+        });
+    </script>
+</body>
+</html>
