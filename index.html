@@ -104,6 +104,8 @@
             fill: #fff;
         }
 
+        .cart-count {
+
         /* Hero section - the main, eye-catching part of the page */
         .hero {
             text-align: center;
@@ -239,6 +241,8 @@
             font-weight: 600;
             margin: 10px 0;
         }
+
+        
 
         /* Footer styling */
         .footer {
@@ -520,9 +524,65 @@
             border-color: #3e2f2e;
             box-shadow: 0 0 0 2px #c96c4d;
         }
+
+        .modal.fade-out {
+            animation: fadeOut ease 2.5s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--text-color);
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .submit-button {
+            display: block;
+            width: 15px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #555;
+        }
     </style>
 </head>
-<body>
+<body data-currency="jmd">
 
     <div class="container">
         <div class="header">
@@ -612,19 +672,19 @@
                         <span class="color-swatch" data-color="brown" style="background-color: #f0dddf;" data-image="images/IMG_0396.JPG"></span>
                     </div>
                     <p class="price">$0.94</p>
-                    <a href="#" class="buy-button">Buy Now</a>
+                    <a href="#" class="add-to-cart-button">Add to Cart</a>
                 </div>
                 <div class="card">
                      <img src="images/IMG_0426.JPG" alt="A dice keychain.">
                      <h3>Dice Keychain</h3>
                      <p class="price">$0.63</p>
-                     <a href="#" class="buy-button">Buy Now</a>
+                     <a href="#" class="add-to-cart-button">Add to Cart</a>
                 </div>
                 <div class="card">
                    <img src="images/IMG_0425.JPG" alt=" A tennis racket keychain.">
                    <h3>Tennis Racket and Ball Keychain</h3>
                    <p class="price">$0.63</p>
-                   <a href="#" class="buy-button">Buy Now</a>
+                   <a href="#" class="add-to-cart-button">Add to Cart</a>
                 </div>
                 <div class="card">
                     <img id="exfoliating-glove-image" src="images/IMG_0429.WEBP" alt="A vibrant pink exfoliating glove.">
@@ -638,7 +698,7 @@ style="background-color: #f0dddf;" data-image="images/IMG_0428.AVIF"></span>
 style="background-color: #f0dddf;" data-image="images/IMG_0427.AVIF"></span>
                     </div>
                     <p class="price">$1.88</p>
-                    <a href="#" class="buy-button">Buy Now</a>
+                    <a href="#" class="add-to-cart-button">Add to Cart</a>
                 </div>
                 <div class="card">
                     <img id="hair-bow-image" src="images/IMG_0419.WEBP" alt="A large black hair bow.">
@@ -650,49 +710,49 @@ style="background-color: #f0dddf;" data-image="images/IMG_0419.WEBP"></span>
 style="background-color: #f0dddf;" data-image="images/IMG_0420.WEBP"></span>
                     </div>
                     <p class="price">$3.13</p>
-                    <a href="#" class="buy-button">Buy Now</a>
+                    <a href="#" class="add-to-cart-button">Add to Cart</a>
                 </div>
                 <div class="card">
                     <img src="images/IMG_0391.WEBP" alt="A clear lip oil tube with a red cherry-like tint.">
                     <h3>Cherry Lip Oil</h3>
                     <p class="price">$2.19</p>
-                    <a href="#" class="buy-button">Buy Now</a>
+                    <a href="#" class="add-to-cart-button">Add to Cart</a>
                 </div>
                 <div class="card">
                     <img src="images/IMG_0400.JPG" alt="A clear and nourishing lip oil.">
                     <h3>Elf Crystal Clear Lip Oil</h3>
                     <p class="price">$5.00</p>
-                    <a href="#" class="buy-button">Buy Now</a>
+                    <a href="#" class="add-to-cart-button">Add to Cart</a>
                 </div>
                 <div class="card">
                     <img src="images/IMG_0404.JPG" alt="A purple tinted lip balm with grape flavour.">
                     <h3>Elf Grape Squeeze Me Lip Balm</h3>
                     <p class="price">$7.50</p>
-                    <a href="#" class="buy-button">Buy Now</a>
+                    <a href="#" class="add-to-cart-button">Add to Cart</a>
                 </div>
                 <div class="card">
                     <img src="images/IMG_0409.JPG" alt="A peach flavoured glowing lip balm.">
                     <h3>Elf Peach Squeeze Me Lip Balm</h3>
                     <p class="price">$7.50</p>
-                    <a href="#" class="buy-button">Buy Now</a>
+                    <a href="#" class="add-to-cart-button">Add to Cart</a>
                 </div>
                 <div class="card">
                     <img src="images/IMG_0401.JPG" alt="A strawberry flavoured tinted lip gloss.">
                     <h3>NK Strawberry Lip Gloss</h3>
                     <p class="price">$2.19</p>
-                    <a href="#" class="buy-button">Buy Now</a>
+                    <a href="#" class="add-to-cart-button">Add to Cart</a>
                 </div>
                 <div class="card">
                     <img src="images/IMG_0403.JPG" alt="A mint flavoured lip gloss.">
                     <h3>NK Mint Lip Gloss</h3>
                     <p class="price">$2.19</p>
-                    <a href="#" class="buy-button">Buy Now</a>
+                    <a href="#" class="add-to-cart-button">Add to Cart</a>
                 </div>
                 <div class="card">
                     <img src="images/IMG_0402.JPG" alt=" A bubble-gum flavoured lip gloss.">
                     <h3>NK Bubble-gum Lip Gloss</h3>
                     <p class="price">$2.19</p>
-                    <a href="#" class="buy-button">Buy Now</a>
+                    <a href="#" class="add-to-cart-button">Add to Cart</a>
                 </div>	
                 <div class="card">
                     <img id="vaseline-lip-therapy-image" src="images/IMG_0431.JPG" alt="A moisturizing lip balm.">
@@ -708,7 +768,7 @@ style="background-color: #f0dddf;" data-image="images/IMG_0432.JPG"></span>
 style="background-color: #f0dddf;" data-image="images/IMG_0433.WEBP"></span>
                     </div>
                     <p class="price">$2.19</p>
-                    <a href="#"class="buy-button">Buy Now</a>
+                    <a href="#"class="add-to-cart-button">Add to Cart</a>
                 </div>
                 <div class="card">
                     <img id="bonnet-image" src="images/IMG_0392.WEBP" alt="A silk bow tie bonnet.">
@@ -721,13 +781,13 @@ style="background-color: #f0dddf;" data-image="images/IMG_0433.WEBP"></span>
                         <span class="color-swatch" data-color="brown" style="background-color: #f0dddf;" data-image="images/IMG_0423.PNG"></span>
                     </div>
                     <p class="price">$4.69</p>
-                    <a href="#" class="buy-button">Buy Now</a>
+                    <a href="#" class="add-to-cart-button">Add to Cart</a>
                 </div>
                 <div class="card">
                     <img src="images/IMG_0418.JPG" alt="A variety of solid colored claw clips.">
                     <h3>Flower Claw Clips</h3>
                     <p class="price">$7.50</p>
-                    <a href="#" class="buy-button">Buy Now</a>
+                    <a href="#" class="add-to-cart-button">Add to Cart</a>
                 </div>
                 <div class="card">
                     <img id="tote-bag-image" src="images/IMG_0406.JPG" alt="A stylish, black tote bag with a geometric pattern.">
@@ -741,7 +801,7 @@ style="background-color: #f0dddf;" data-image="images/IMG_0405.JPG"></span>
 style="background-color: #f0dddf;" data-image="images/IMG_0407.JPG"></span>
                     </div>
                     <p class="price">$14.07</p>
-                    <a href="#" class="buy-button">Buy Now</a>
+                    <a href="#" class="add-to-cart-button">Add to Cart</a>
                 </div>
             </div>
         </div>
@@ -760,11 +820,25 @@ style="background-color: #f0dddf;" data-image="images/IMG_0407.JPG"></span>
             <h2>Your Cart</h2>
             <ul class="cart-items">
                 </ul>
+            <div class="cart-summary">
+                <h3>Total: <span id="cart-total">JMD$0.00</span></h3>
+                <button class="checkout-button">Checkout</button>
         </div>
     </div>
+</div>
 
-    <div id="contact-section" style="display: none;">
-        <div class="container page-content">
+    <div id="contact-section" class="page-section" style="display: none;">
+        <div class="container">
+            <h2>Your Cart</h2>
+            <ul class="cart-items">
+            </ul>
+        <div class="cart-summary">
+            <h3>Total: <span id="cart-total">JMD$0.00</span>span></h3>
+            <button class="checkout-button">Checkout</button>
+        </div>
+    </div>    
+</div>
+        
             <h2>Contact Us</h2>
             <div class="contact-details">
                 <p>We'd love to hear from you! Feel free to reach out with any questions.</p>
@@ -900,6 +974,12 @@ style="background-color: #f0dddf;" data-image="images/IMG_0407.JPG"></span>
             currencySelector.classList.toggle('active');
         });
 
+        window.addEventListener('click', (e) => { 
+            if (!filterSelector.contains(e.target)) {
+                filterSelector.classList.remove('active');
+            }
+        });
+
         // Color swatch functionality for products
         const setupColorSwatches = (containerId, imageId) => {
             const container = document.getElementById(containerId);
@@ -966,8 +1046,10 @@ style="background-color: #f0dddf;" data-image="images/IMG_0407.JPG"></span>
             jmd: 155.00
         };
 
-        let currentCurrency = 'jmd';
+        let currentCurrency = document.body.dataset.currency;
         const currencyLinks = document.querySelectorAll('.currency-dropdown a');
+        const cartCountElement = document.querySelector('.cart-count');
+        const checkoutButton = document.querySelector('.checkout-button');
 
         const updatePrices = () => {
             const productCards = document.querySelectorAll('.card');
@@ -990,14 +1072,106 @@ style="background-color: #f0dddf;" data-image="images/IMG_0407.JPG"></span>
                 currentCurrency = newCurrency;
                 currencyButton.textContent = newCurrency.toUpperCase();
                 updatePrices();
+                updatedCartDisplay();
             });
         });
 
         updatePrices();
         
         const cartItemsList = document.querySelector('.cart-items');
-        const buyButtons = document.querySelectorAll('.buy-button');
+        const buyButtons = document.querySelectorAll('.add-to-cart-button');
+        const cartTotalElement = document.getElementById('cart-total');
         let cart = [];
+
+        const updateCartDisplay = () => {
+            cartItemsList.innerHTML = '';
+            let total = 0;
+            if (cart.length > 0) {
+                cart.forEach((item, index) => {
+                    const li = document.createElement('li');
+                    li.classList.add('cart-item');
+                    let priceText = '';
+                    let convertedPrice = item.price * conversionRates[currentCurrency] * item.quantity;
+                    let currencySymbol = currentCurrency === 'usd' ? '$' : 'JMD$';
+                    priceText = '${currencySymbol}${ convertedPrice.toFixed(2)}';
+
+                    li.innerHTML = '
+                        <span>${item.name}</span>
+                        <div class="quantity-controls">
+                            <button class="quantity-decrease" data-index="${index}">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="quantity-increase" data-index="${index}">+</button>
+                        </div>
+                        <span class="cart-item-price">${priceText}</span>
+                        <button class="remove-item" data-index="${index}">Remove</button>
+                   ';
+                   cartItemsList.appendChild(li);
+                   total += item.price * item.quantity;
+            });
+        } else {
+            cartItemList.innerHTML = '<li>Your cart is empty.</li>';
+        }
+
+        if (cartTotalElement) {
+            const convertedTotal = total * conversionRates[currentCurrency];
+            let currencySymbol = currentCurrency === 'usd' ? '$' : 'JMD$';
+            cartTotalElement.textContent = '${currencySymbol}${convertedTotal.toFixed(2)}';
+        }
+        cartCountElement.textContent = '${currencySymbol}${convertedTotal.toFixed(2)}';
+    };
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const card = e. target.closest('.card');
+            const productName = card.querySelector('h3').textContent.trim();
+            const productPriceUSD = pricesInUSD[productName];
+
+            if (productPriceUSD !==undefined) {
+                const existingItem = cart.find(item => item.name === productName);
+                if (existingItem) {
+                    existingItem.quantity++;
+                    showMessageModal('${productName} quantity increased to ${existingItem.quantity}!');
+                } else {
+                    cart.push({ name: productName, price: productPriceUSD, quantity: 1 });
+                    showMessageModal('${productName} has been added to your cart!');
+                }
+            }
+            updateCartDisplay();
+        });
+    });
+
+    cartItemsList.addEventListener('click'. (e) => {
+        if (e.target.classList.contains(quantity-increase')) {
+            const index = e.target.dataset.index;
+            cart[index].quantity++;
+            updateCartDisplay();
+    }
+    if (e.target.classList.contains('quantity-decrease')) {
+        const index = e.target.dataset.index;
+        if (cart[index].quantity > 1) {
+            cart[index].quantity--;
+        } else {
+            cart.splice(index, 1)
+        }
+        updateCartDisplay();
+    }
+    if (e.target.classList.contains(remove-item')) {
+        const index = e.target.dataset.index;
+        cart.splice(index, 1);
+        updateCartDisplay();
+    }
+    });
+
+    if (checkoutButton) {
+        checkoutButton.addEventListener('click', () => {
+            if (cart.length > 0) {
+                showCheckoutModal();
+            } else {
+                showMessageModal('Your cart is empty.');
+            }
+        });
+    }
 
         buyButtons.forEach(button => {
             button.addEventListener('click', (e) => {
