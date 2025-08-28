@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,6 +8,404 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    </style>
+         /* General body and container styles */
+         :root {
+             --primary-color: #3e2f2e;
+             --secondary-color: #e5b4b1;
+             --background-color: #f7f1e3;
+             --accent-color: #a45a52;
+         }
+        
+         body {
+             font-family: 'Poppins', sans-serif;
+             background-color: var(--background-color);
+             margin: 0;
+             padding: 0;
+             color: var(--primary-color);  
+         }
+
+         .container {
+             max-width: 1200px;
+             margin: 0 auto;
+             padding: 0 20px;
+         }
+
+         /* Header and navigation styles */
+         .header {
+             background-color: var(--background-color);
+             padding: 20px 0;
+             border-bottom: 1px solid #ddd;
+             position: fixed;
+             width: 100%;
+             top: 0;
+             z-index: 1000;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+        }
+
+        .logo {
+            margin: 0;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .navigation ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .navigation a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Page section styles */
+        .page-section {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero-section {
+            background-color: var(--secondary-color);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center; 
+            flex-direction: column;
+            padding-top: 60px;
+        }
+
+        .hero-content h2 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 10px; 
+        }
+
+        .hero-content p { 
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            max-width: 600px;
+           margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s; 
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Shop All Section */
+        .shop-all-section {
+            padding-top: 100px;
+        }
+
+        .product-grid { 
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        .card p.price {
+            font-size: 1rem;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .add-to-cart-button {
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .add-to-cart-button:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--background-color); 
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid var(--secondary-color);
+        }
+
+        .footer .social-media {
+            margin-bottom: 10px;
+        }
+
+        .footer .social-media a {
+            color: var(--background-color); 
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .footer .social-media a:hover { 
+            color: var(--secondary-color);
+        }
+
+        /* Color swatch styles */
+        .color-swatches, .flavour-swatches {
+            display: flex;
+            justify-content: center;
+            margin: 10px 0;
+            gap: 10px;
+        }
+
+        .color-swatch, .flavour-swatch {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;  
+            transition: border-color 0.3s;
+        }
+
+        .color-swatch:hover, .flavour-swatch:hover, 
+        .color-swatch.active, .flavour-swatch.active {
+            border-color: var(--primary-color);
+        }
+
+        .green { background-color: #8fbc8f; }
+        .purple { background-color: #800080; }
+        .pink-glove { background-color: #ff69b4; }
+        .blue-glove { background-color: #add8e6; }
+        .green-glove { background-color: #90ee90; }
+        .pink-bow { background-color: #ffc0cb; }
+        .blue-bow { background-color: #6495ed; }
+        .purple-bow { background-color: #da70d6; }
+        .original { background-color: #f0f0f0; }
+        .cocoa { background-color: #8b4513; }
+        .rose { background-color: #e5a9b2; }
+        .cherry { background-color: #d22d3b; }
+        .purple-bonnet { background-color: #7d5a9d; }
+        .black-bonnet { background-color: #000000; }
+        .burgundy-bonnet { background-color: #800020; }
+        .pink-bonnet { background-color: #ff69b4; }
+        .black-tote { background-color: #000000; }
+        .pink-tote { background-color: #ffc0cb; } 
+        .blue-tote { background-color: #6495ed; }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;  
+            background-color: rgba(0,0,0,0.4);
+            transition: opacity 0.5s ease-in-out;   
+            opacity: 1;
+        }
+
+        .modal.fade-out {
+            opacity: 0;  
+        }
+
+        .modal-content {
+            background-color: var(--background-color);
+            color: var(--primary-color);
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+            position: relative;
+            text-align: center;
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none; 
+            cursor: pointer;
+        }
+
+        /* Cart Styles */
+        .cart-link {
+            position: relative;
+            display: inline-block;
+        }  
+
+        .cart-icon {
+            width: 24px;
+            height: 24px;
+            fill: none;
+        }
+
+        .cart-count {
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            border-radius: 50%;
+            padding: 2px 6px;
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            font-size: 0.7em;
+            font-weight: bold;
+        }
+
+        .cart-items { 
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        } 
+
+        .cart-item { 
+            display: flex; 
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .cart-total {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .checkout-button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .checkout-button:hover {
+            background-color: #8c4a43;
+        }
+
+        /* Contact Form Styles */
+        .form-group { 
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .submit-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: var(--accent-color);
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .modal-buttons button {
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px; 
+            font-weight: bold;
+        } 
+
+        #confirm-checkout {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        #cancel-checkout {
+            background-color: #ccc;
+            color: black;
+        }
+    </style>
 </head>
 <body data-currency="jmd">
     <header class="header">
@@ -227,7 +625,7 @@
         <div class="container">
             <h2>About Us</h2>
             <div class="about-content">
-                <p>Alley Accessories is a small Jamaican business dedicated to providing you with the highest quality products. Our mission is to make you look and feel your best, with unique pieces that you won't find anywhere else. We believe in providing our customers with a variety of products at affordable prices.</p>
+                <p>Accessories by Alley was born out of a passion for unique and stylish pieces thhat complete any look. We believe that accessories are more than just items; they are a form of self-expression. Our mission is to provide high quality, beautiful accessories that help you express your individual style.</p>
             </div>
         </div>
     </div>
@@ -250,7 +648,7 @@
     <div id="contact-section" class="page-section" style="display: none;">
         <div class="container">
             <h2>Contact Us</h2>
-            <form id="contact-form" action="mailto:your-email@example.com" method="post" enctype="text/plain">
+            <form id="contact-form" action="mailto:accessoriesbyalley@gmail.com" method="post" enctype="text/plain">
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" required>
@@ -275,10 +673,10 @@
     <footer class="footer">
         <div class="container">
             <div class="social-media">
-                <a href="https://www.instagram.com/your-username" target="_blank">Instagram</a>
-                <a href="https://www.tiktok.com/@your-username" target="_blank">TikTok</a>
+                <a href="https://www.instagram.com/alley_.accessories" target="_blank">Instagram</a>
+                <a href="https://www.tiktok.com/@alley.accessories" target="_blank">TikTok</a>
             </div>
-            <p>&copy; 2023 Alley Accessories</p>
+            <p>&copy; 2025 Accessories by Alley</p>
         </div>
     </footer>
 
