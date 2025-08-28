@@ -1,275 +1,537 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alley Accessories</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    </style>
-         /* General body and container styles */
-         :root {
-             --primary-color: #3e2f2e;
-             --secondary-color: #e5b4b1;
-             --background-color: #f7f1e3;
-             --accent-color: #a45a52;
-         }
-        
-         body {
-             font-family: 'Poppins', sans-serif;
-             background-color: var(--background-color);
-             margin: 0;
-             padding: 0;
-             color: var(--primary-color);  
-         }
-
-         .container {
-             max-width: 1200px;
-             margin: 0 auto;
-             padding: 0 20px;
-         }
-
-         /* Header and navigation styles */
-         .header {
-             background-color: var(--background-color);
-             padding: 20px 0;
-             border-bottom: 1px solid #ddd;
-             position: fixed;
-             width: 100%;
-             top: 0;
-             z-index: 1000;
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="https://storage.googleapis.com/gwm-uploaded-files/Alley.png" type="image/x-icon">
+    <style>
+        /* General body styling for a clean, professional look */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff0f5; /* Changed to an extremely light pink */
+            color: #333; /* Text color changed to dark for readability */
+            line-height: 1.6;
         }
 
-        .header .container {
+        /* Container to center the content and apply a max-width */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header styling with a logo, navigation, and a subtle drop shadow */
+        .header {
             display: flex;
-            justify-content: space-between; 
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 2px solid #e9967a; /* Lighter border color */
+            margin-bottom: 20px;
+            background-color: #fdf7e9; /* Changed to a warm cream color */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Logo text style */
+        .logo {
+            font-family: 'Playfair Display', serif; /* Changed font to Playfair Display */
+            font-size: 2.5em;
+            font-weight: 700; /* Bolder font weight for legibility */
+            color: #3e2f2e; /* Dark text for contrast on light background */
+            text-decoration: none;
+            padding-left: 20px;
+        }
+
+        /* Navigation links */
+        .nav-links {
+            display: flex;
             align-items: center;
         }
 
-        .logo {
-            margin: 0;
-            font-size: 1.5rem;
-            color: var(--primary-color);
+        .nav-links a {
+            text-decoration: none;
+            color: #3e2f2e; /* Dark text for contrast on light background */
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer; /* Added cursor to indicate interactivity */
+        }
+        
+        .nav-links a:hover {
+            color: #c96c4d; /* Warm burnt orange on hover */
         }
 
-        .navigation ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
+        /* --- Cart Icon Styling --- */
+        /* Container for the new cart icon, making it a subtle circle button */
+        .cart-link {
+            margin-left: 20px;
+            padding: 8px;
+            border: 1px solid #3e2f2e;
+            border-radius: 50%;
             display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        /* Hover state for the cart button */
+        .cart-link:hover {
+            background-color: #c96c4d;
+            border-color: #c96c4d;
+            cursor: pointer;
+        }
+
+        /* Styling for the cart icon itself */
+        .cart-icon {
+            width: 16px;
+            height: 16px;
+            fill: #3e2f2e;
+            transition: fill 0.3s ease;
+        }
+
+        /* Hover state for the icon inside the button */
+        .cart-link:hover .cart-icon {
+            fill: #fff;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            font-weight: bold;
+            display: none; /* Hide by default */
+        }
+
+        /* Hero section - the main, eye-catching part of the page */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background-color: #fdf7e9; /* Changed back to match header color */
+            color: #3e2f2e; /* Changed to a darker color for readability */
+            border-radius: 8px;
+            margin-bottom: 40px;
+            position: relative;
+            /* New flexbox properties for image and text arrangement */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px; /* Adds space between the headline, paragraph, and button */
+        }
+
+        /* Hero text styling */
+        .hero h1 {
+            font-family: 'Playfair Display', serif; /* Changed font to Playfair Display */
+            font-weight: 700; /* Bolder font weight for legibility */
+            font-size: 3.5em;
+            margin: 0; /* Removed bottom margin since gap is used */
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0; /* Removed margin since gap is used */
+        }
+
+        /* Styling for the new "Shop Now" button */
+        .shop-now-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #c96c4d; /* Use the burnt orange accent color */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .shop-now-button:hover {
+            background-color: #a6583d; /* Darken the color on hover */
+            transform: translateY(-2px); /* Add a subtle lift effect */
+        }
+
+        /* Main content sections with flexible display for multiple items */
+        .main-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
             gap: 20px;
         }
 
-        .navigation a {
-            text-decoration: none;
-            color: var(--primary-color);
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        .navigation a:hover {
-            color: var(--secondary-color);
-        }
-
-        /* Page section styles */
-        .page-section {
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .hero-section {
-            background-color: var(--secondary-color);
-            height: 100vh;
+        /* New class for the horizontal layout on the home page */
+        .home-products-grid {
             display: flex;
-            align-items: center;
-            justify-content: center; 
-            flex-direction: column;
-            padding-top: 60px;
+            flex-direction: row; /* Ensure horizontal layout */
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+            justify-content: space-around;
+            gap: 20px;
         }
-
-        .hero-content h2 {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 10px; 
-        }
-
-        .hero-content p { 
-            font-size: 1.2rem;
-            color: var(--primary-color);
-            max-width: 600px;
-           margin-bottom: 20px;
-        }
-
-        .btn {
-            background-color: var(--primary-color);
-            color: var(--background-color);
-            padding: 12px 24px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s; 
-        }
-
-        .btn:hover {
-            background-color: var(--accent-color);
-        }
-
-        /* Shop All Section */
-        .shop-all-section {
-            padding-top: 100px;
-        }
-
-        .product-grid { 
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .card {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+        
+        .products-heading {
+            width: 100%;
             text-align: center;
-            transition: transform 0.3s ease;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #3e2f2e;
+            margin-bottom: 20px;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
+        /* Individual content cards for products or features */
+        .card {
+            background-color: #f0dddf;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 20px;
+            flex: 1 1 300px; /* Allow cards to grow and shrink responsively */
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        /* New styling to control card width for a more uniform look */
+        .home-products-grid .card {
+            width: calc(33.333% - 20px); /* Adjust width for 3 cards per row with gap */
+            max-width: 300px;
+            flex: none; /* Override the default flex behavior to use explicit width */
         }
 
         .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .card h3 {
-            font-size: 1.2rem;
-            margin-top: 15px;
-            margin-bottom: 5px;
-        }
-
-        .card p.price {
-            font-size: 1rem;
-            color: var(--accent-color);
-            font-weight: bold;
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
             margin-bottom: 15px;
         }
 
+        .card h3 {
+            font-family: 'Montserrat', sans-serif; /* New font for the card headings */
+            font-weight: 700;
+            color: #3e2f2e; /* Changed to a deep brown */
+            font-size: 1.5em;
+            margin: 0 0 10px;
+        }
+
+        /* Styling for the payment buttons */
         .add-to-cart-button {
-            background-color: var(--primary-color);
-            color: var(--background-color);
-            border: none;
+            display: inline-block;
+            margin-top: 15px;
             padding: 10px 20px;
-            font-size: 1rem;
+            background-color: #c96c4d; /* Use the burnt orange accent color */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
             cursor: pointer;
-            transition: background-color 0.3s;
-            width: 100%;
+            border: none;
         }
 
         .add-to-cart-button:hover {
-            background-color: var(--accent-color);
+            background-color: #a6583d;
+        }
+        
+        .price {
+            font-size: 1.2em;
+            color: #555;
+            font-weight: 600;
+            margin: 10px 0;
         }
 
-        /* Footer styles */
+        /* Footer styling */
         .footer {
-            background-color: var(--primary-color);
-            color: var(--background-color); 
-            text-align: center;
-            padding: 20px 0;
-            border-top: 1px solid var(--secondary-color);
+            text-align: center; /* Reverted to 'center' */
+            padding: 20px;
+            border-top: 2px solid #e9967a; /* Lighter border color */
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #333; /* Dark text for readability */
+            background-color: #fdf7e9; /* Changed to match the header color */
         }
-
-        .footer .social-media {
-            margin-bottom: 10px;
-        }
-
-        .footer .social-media a {
-            color: var(--background-color); 
-            text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.3s;
-        }
-
-        .footer .social-media a:hover { 
-            color: var(--secondary-color);
-        }
-
-        /* Color swatch styles */
-        .color-swatches, .flavour-swatches {
+        
+        /* New social links styling for the footer */
+        .social-links {
+            margin-top: 10px;
             display: flex;
             justify-content: center;
-            margin: 10px 0;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .social-links a {
+            color: #3e2f2e;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            display: inline-flex; /* Use flexbox for icon and text alignment */
+            align-items: center;
+            gap: 5px; /* Add a small gap between the icon and text */
+        }
+        
+        .social-links a:hover {
+            color: #c96c4d; /* Match the accent color */
+        }
+        
+        /* New styling for image-based social media logos */
+        .social-links img.logo-img {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover img.logo-img {
+            transform: scale(1.1); /* Add a slight zoom effect on hover */
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        /* New styling for the social links on the home page */
+        .social-links-home {
+            text-align: center;
+            padding: 20px;
+            background-color: #fdf7e9;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        /* --- New styles for Cart and Contact Pages --- */
+        .page-content {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .page-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            color: #3e2f2e;
+            margin-bottom: 20px;
+        }
+        
+        .contact-details {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            font-size: 1.2em;
+        }
+
+        .cart-items {
+            list-style: none;
+            padding: 0;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+        
+        .cart-item-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
             gap: 10px;
         }
 
-        .color-swatch, .flavour-swatch {
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .quantity-btn {
+            background-color: #ccc;
+            border: none;
+            padding: 5px 10px;
             cursor: pointer;
-            border: 2px solid transparent;  
-            transition: border-color 0.3s;
+            border-radius: 3px;
         }
 
-        .color-swatch:hover, .flavour-swatch:hover, 
-        .color-swatch.active, .flavour-swatch.active {
-            border-color: var(--primary-color);
+        .remove-btn {
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
         }
 
-        .green { background-color: #8fbc8f; }
-        .purple { background-color: #800080; }
-        .pink-glove { background-color: #ff69b4; }
-        .blue-glove { background-color: #add8e6; }
-        .green-glove { background-color: #90ee90; }
-        .pink-bow { background-color: #ffc0cb; }
-        .blue-bow { background-color: #6495ed; }
-        .purple-bow { background-color: #da70d6; }
-        .original { background-color: #f0f0f0; }
-        .cocoa { background-color: #8b4513; }
-        .rose { background-color: #e5a9b2; }
-        .cherry { background-color: #d22d3b; }
-        .purple-bonnet { background-color: #7d5a9d; }
-        .black-bonnet { background-color: #000000; }
-        .burgundy-bonnet { background-color: #800020; }
-        .pink-bonnet { background-color: #ff69b4; }
-        .black-tote { background-color: #000000; }
-        .pink-tote { background-color: #ffc0cb; } 
-        .blue-tote { background-color: #6495ed; }
+        .cart-summary {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #e9967a;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: right;
+            font-size: 1.5em;
+        }
 
-        /* Modal Styles */
+        .checkout-btn {
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-links {
+                margin-top: 10px;
+            }
+            .nav-links a {
+                margin: 0 10px;
+            }
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            /* Stack home page cards vertically on small screens */
+            .home-products-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            /* Make cards full width on mobile */
+            .home-products-grid .card {
+                width: 100%;
+            }
+        }
+
+        /* New styles for the filter and currency buttons */
+        .shop-controls {
+            display: flex;
+            justify-content: flex-end; /* Align to the right */
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .filter-button, .currency-button {
+            background-color: #c96c4d;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .filter-button:hover, .currency-button:hover {
+            background-color: #a6583d;
+        }
+        
+        /* Filter and Currency Dropdown Base Styles */
+        .filter-selector, .currency-selector {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .filter-dropdown, .currency-dropdown {
+            display: none;
+            position: absolute;
+            background-color: #fdf7e9;
+            min-width: 120px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            right: 0;
+            border-radius: 5px;
+            overflow: hidden;
+            top: 100%; /* Position below the button */
+        }
+        
+        .filter-dropdown a, .currency-dropdown a {
+            color: #3e2f2e;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .filter-dropdown a:hover, .currency-dropdown a:hover {
+            background-color: #e9967a;
+            color: #fff;
+        }
+        
+        /* Show dropdown on hover or when active class is applied by JS */
+        .filter-selector:hover .filter-dropdown,
+        .filter-selector.active .filter-dropdown {
+            display: block;
+        }
+
+        .currency-selector:hover .currency-dropdown,
+        .currency-selector.active .currency-dropdown {
+            display: block;
+        }
+
+        /* Simple modal for messages */
         .modal {
             display: none;
             position: fixed;
-            z-index: 1001;
+            z-index: 10;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            overflow: auto;  
+            overflow: auto;
             background-color: rgba(0,0,0,0.4);
-            transition: opacity 0.5s ease-in-out;   
-            opacity: 1;
-        }
-
-        .modal.fade-out {
-            opacity: 0;  
+            transition: opacity 0.5s ease-in-out;
+            opacity: 0;
         }
 
         .modal-content {
-            background-color: var(--background-color);
-            color: var(--primary-color);
+            background-color: #fefefe;
             margin: 15% auto;
             padding: 20px;
             border: 1px solid #888;
             width: 80%;
-            max-width: 400px;
-            border-radius: 10px;
-            position: relative;
+            max-width: 500px;
+            border-radius: 8px;
             text-align: center;
         }
 
@@ -284,401 +546,376 @@
         .close-button:hover,
         .close-button:focus {
             color: black;
-            text-decoration: none; 
-            cursor: pointer;
+            text-decoration: none;
         }
-
-        /* Cart Styles */
-        .cart-link {
-            position: relative;
-            display: inline-block;
-        }  
-
-        .cart-icon {
-            width: 24px;
-            height: 24px;
-            fill: none;
-        }
-
-        .cart-count {
-            background-color: var(--primary-color);
-            color: var(--background-color);
-            border-radius: 50%;
-            padding: 2px 6px;
-            position: absolute;
-            top: -5px;
-            right: -10px;
-            font-size: 0.7em;
-            font-weight: bold;
-        }
-
-        .cart-items { 
-            list-style: none;
-            padding: 0;
+        
+        .confirm-modal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
             margin-top: 20px;
-        } 
-
-        .cart-item { 
-            display: flex; 
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #ddd;
-            padding: 10px 0;
         }
-
-        .cart-total {
-            margin-top: 20px;
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-
-        .checkout-button {
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
+        
+        .confirm-modal-buttons button {
             padding: 10px 20px;
-            margin-top: 20px;
-            cursor: pointer;
-        }
-
-        .checkout-button:hover {
-            background-color: #8c4a43;
-        }
-
-        /* Contact Form Styles */
-        .form-group { 
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-
-        .submit-button {
-            background-color: var(--primary-color);
-            color: white;
             border: none;
-            padding: 15px 30px;
-            font-size: 1.1em;
             border-radius: 5px;
+            font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s ease;
         }
 
-        .submit-button:hover {
-            background-color: var(--accent-color);
+        .confirm-button {
+            background-color: #28a745;
+            color: white;
+        }
+        
+        .cancel-button {
+            background-color: #dc3545;
+            color: white;
         }
 
-        .modal-buttons {
+        /* New styles for the color swatches */
+        .color-options {
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-top: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
         }
-
-        .modal-buttons button {
-            padding: 10px 20px;
-            border: none;
+        
+        .color-swatch {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: 2px solid transparent;
             cursor: pointer;
-            border-radius: 5px; 
-            font-weight: bold;
-        } 
-
-        #confirm-checkout {
-            background-color: var(--primary-color);
-            color: white;
+            transition: border-color 0.2s ease, transform 0.2s ease;
         }
 
-        #cancel-checkout {
-            background-color: #ccc;
-            color: black;
+        .color-swatch:hover {
+            transform: scale(1.1);
+        }
+
+        .color-swatch.active {
+            border-color: #3e2f2e; /* Highlight the active swatch */
+            box-shadow: 0 0 0 2px #c96c4d; /* Add a subtle glow */
+        }
+         /* New styles for the flavour swatches */
+        .flavour-options {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .flavour-swatch {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .flavour-swatch:hover {
+            transform: scale(1.1);
+        }
+
+        .flavour-swatch.active {
+            border-color: #3e2f2e;
+            box-shadow: 0 0 0 2px #c96c4d;
         }
     </style>
 </head>
-<body data-currency="jmd">
-    <header class="header">
-        <div class="container">
-            <h1 class="logo">Alley Accessories </h1>
-            <nav class="navigation">
-                <ul>
-                    <li><a href="#" id="home-link">Home</a></li>
-                    <li><a href="#" id="shop-link">Shop All</a></li>
-                    <li><a href="#" id="about-link">About Us</a></li>
-                    <li><a href="#" id="contact-link">Contact</a></li>
-                    <li>
-                        <a href="#" id="cart-link" class="cart-link">
-                            <span class="cart-count">0</span>
-                            <svg class="cart-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M6 2L3 6V20C3 20.5304 3.21071 21.0391 3.58579 21.4142C3.96086 21.7893 4.46957 22 5 22H19C19.5304 22 20.0391 21.7893 20.4142 21.4142C20.7893 21.0391 21 20.5304 21 20V6L18 2H6Z" stroke="#3e2f2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M3 6H21" stroke="#3e2f2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M12 6V20" stroke="#3e2f2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M8 10V14" stroke="#3e2f2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M16 10V14" stroke="#3e2f2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <a href="#" class="logo">
+                <img src="images/alleyaccessorieslogo.jpeg" alt="Alley Accessories Logo" style="height: 50px;">
+            </a>
+            <div class="nav-links">
+                <a href="#" id="home-link">Home</a>
+                <a href="#" id="shop-link">Shop All</a>
+                <a href="#" id="about-link">About</a>
+                <a href="#" id="contact-link">Contact</a>
+                <a href="#" id="cart-link" class="cart-link">
+                    <svg class="cart-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 2L3 6V20C3 20.5304 3.21071 21.0391 3.58579 21.4142C3.96086 21.7893 4.46957 22 5 22H19C19.5304 22 20.0391 21.7893 20.4142 21.4142C20.7893 21.0391 21 20.5304 21 20V6L18 2H6Z" stroke="#3e2f2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3 6H21" stroke="#3e2f2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 6V20" stroke="#3e2f2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8 10V14" stroke="#3e2f2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 10V14" stroke="#3e2f2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
         </div>
-    </header>
+    </div>
+
+    <div id="home-section">
+        <div class="hero">
+            <h1>Elevate Your Everyday Style</h1>
+            <p>Accessories that tell a story. Find the perfect piece for any occasion.</p>
+            <a href="#" class="shop-now-button" id="hero-shop-all-button">Shop Now</a>
+        </div>
+        
+        <div class="container main-content">
+            <h2 class="products-heading">Featured Products</h2>
+            <div class="home-products-grid">
+                <div class="card">
+                    <div>
+                        <img src="images/IMG_0405.JPG" alt="A vibrant pink stylish tote bag.">
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/IMG_0391.WEBP" alt="A clear lip oil tube with a red cherry-like tint.">
+                </div>
+                <div class="card">
+                    <img src="images/IMG_0425.JPG" alt="A tennis racket and ball keychain on white background.">
+                </div>
+            </div>
+        </div>
+
+        <div class="container social-links-home">
+            <h2>Find Us on Social Media</h2>
+            <div class="social-links">
+                <a href="https://www.instagram.com/your-username" target="_blank">
+                    <img src="images/instagramlogo.png" alt="Instagram Logo" class="logo-img">
+                </a>
+                <a href="https://www.tiktok.com/@your-username" target="_blank">
+                    <img src="images/Tiktoklogo.png" alt="TikTok Logo" class="logo-img">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="shop-all-section" style="display: none;">
+        <div class="container">
+            <div class="shop-controls">
+                <div class="filter-selector" id="filter-selector">
+                    <button class="filter-button">Filter By</button>
+                    <div class="filter-dropdown">
+                        <a href="#" data-filter="product">By Product</a>
+                        <a href="#" data-filter="price">By Price</a>
+                    </div>
+                </div>
+                
+                <div class="currency-selector" id="currency-selector">
+                    <button class="currency-button">JMD</button>
+                    <div class="currency-dropdown">
+                        <a href="#" data-currency="usd">USD</a>
+                        <a href="#" data-currency="jmd">JMD</a>
+                    </div>
+                </div>
+            </div>
+            <h2 class="products-heading">Our Full Collection</h2>
+            <div class="main-content">
+                <div class="card">
+                    <img id="keychain-image" src="images/IMG_0397.JPG" alt="A blue turtle keychain.">
+                    <h3>Turtle Keychains</h3>
+                    <div class="color-options" id="keychain-colors">
+                        <span class="color-swatch active" data-color="blue" style="background-color: #87ceeb;" data-image="images/IMG_0397.JPG"></span>
+                        <span class="color-swatch" data-color="pink" style="background-color: #ffc0cb;" data-image="images/IMG_0398.JPG"></span>
+                        <span class="color-swatch" data-color="purple" style="background-color: #800080;" data-image="images/IMG_0399.JPG"></span>
+                        <span class="color-swatch" data-color="brown" style="background-color: #a52a2a;" data-image="images/IMG_0396.JPG"></span>
+                    </div>
+                    <p class="price">$0.94</p>
+                    <button class="add-to-cart-button">Add to Cart</button>
+                </div>
+                <div class="card">
+                     <img src="images/IMG_0426.JPG" alt="A dice keychain.">
+                     <h3>Dice Keychain</h3>
+                     <p class="price">$0.63</p>
+                     <button class="add-to-cart-button">Add to Cart</button>
+                </div>
+                <div class="card">
+                   <img src="images/IMG_0425.JPG" alt=" A tennis racket keychain.">
+                   <h3>Tennis Racket and Ball Keychain</h3>
+                   <p class="price">$0.63</p>
+                   <button class="add-to-cart-button">Add to Cart</button>
+                </div>
+                <div class="card">
+                    <img id="exfoliating-glove-image" src="images/IMG_0429.WEBP" alt="A vibrant pink exfoliating glove.">
+                    <h3> Exfoliating Gloves</h3>
+                   <div class="color-options" id="glove-colors">
+                       <span class="color-swatch active" data-color="pink"
+style="background-color: #ffc0cb;" data-image="images/IMG_0429.WEBP"></span>
+                       <span class="color-swatch" data-color="blue"
+style="background-color: #87ceeb;" data-image="images/IMG_0428.AVIF"></span>
+                       <span class="color-swatch" data-color="purple"
+style="background-color: #800080;" data-image="images/IMG_0427.AVIF"></span>
+                    </div>
+                    <p class="price">$1.88</p>
+                    <button class="add-to-cart-button">Add to Cart</button>
+                </div>
+                <div class="card">
+                    <img id="hair-bow-image" src="images/IMG_0419.WEBP" alt="A large black hair bow.">
+                    <h3>Large Hair Bow</h3>
+                    <div class="color-options" id="bow-colors">
+                        <span class="color-swatch active" data-color="black"
+style="background-color: #000000;" data-image="images/IMG_0419.WEBP"></span>
+                        <span class="color-swatch" data-color="white"
+style="background-color: #ffffff;" data-image="images/IMG_0420.WEBP"></span>
+                    </div>
+                    <p class="price">$3.13</p>
+                    <button class="add-to-cart-button">Add to Cart</button>
+                </div>
+                <div class="card">
+                    <img src="images/IMG_0391.WEBP" alt="A clear lip oil tube with a red cherry-like tint.">
+                    <h3>Cherry Lip Oil</h3>
+                    <p class="price">$2.19</p>
+                    <button class="add-to-cart-button">Add to Cart</button>
+                </div>
+                <div class="card">
+                    <img src="images/IMG_0400.JPG" alt="A clear and nourishing lip oil.">
+                    <h3>Elf Crystal Clear Lip Oil</h3>
+                    <p class="price">$5.00</p>
+                    <button class="add-to-cart-button">Add to Cart</button>
+                </div>
+                <div class="card">
+                    <img src="images/IMG_0404.JPG" alt="A purple tinted lip balm with grape flavour.">
+                    <h3>Elf Grape Squeeze Me Lip Balm</h3>
+                    <p class="price">$7.50</p>
+                    <button class="add-to-cart-button">Add to Cart</button>
+                </div>
+                <div class="card">
+                    <img src="images/IMG_0409.JPG" alt="A peach flavoured glowing lip balm.">
+                    <h3>Elf Peach Squeeze Me Lip Balm</h3>
+                    <p class="price">$7.50</p>
+                    <button class="add-to-cart-button">Add to Cart</button>
+                </div>
+                <div class="card">
+                    <img src="images/IMG_0401.JPG" alt="A strawberry flavoured tinted lip gloss.">
+                    <h3>NK Strawberry Lip Gloss</h3>
+                    <p class="price">$2.19</p>
+                    <button class="add-to-cart-button">Add to Cart</button>
+                </div>
+                <div class="card">
+                    <img src="images/IMG_0403.JPG" alt="A mint flavoured lip gloss.">
+                    <h3>NK Mint Lip Gloss</h3>
+                    <p class="price">$2.19</p>
+                    <button class="add-to-cart-button">Add to Cart</button>
+                </div>
+                <div class="card">
+                    <img src="images/IMG_0402.JPG" alt=" A bubble-gum flavoured lip gloss.">
+                    <h3>NK Bubble-gum Lip Gloss</h3>
+                    <p class="price">$2.19</p>
+                    <button class="add-to-cart-button">Add to Cart</button>
+                </div>	
+                <div class="card">
+                    <img id="vaseline-lip-therapy-image" src="images/IMG_0431.JPG" alt="A moisturizing lip balm.">
+                    <h3>Vaseline Lip Therapy Balm</h3>
+                    <div class="flavour-options" id="lip-balm-flavours">
+                        <span class="flavour-swatch active" data-flavour="original"
+style="background-color: #f0dddf;" data-image="images/IMG_0431.JPG"></span>
+                        <span class="flavour-swatch" data-flavour="aloe vera"
+style="background-color: #90ee90;" data-image="images/IMG_0430.AVIF"></span>
+                        <span class="flavour-swatch" data-flavour="cocoa butter"
+style="background-color: #d2691e;" data-image="images/IMG_0432.JPG"></span>
+                        <span class="flavour-swatch" data-flavour="rosy lips"
+style="background-color: #ffb6c1;" data-image="images/IMG_0433.WEBP"></span>
+                    </div>
+                    <p class="price">$2.19</p>
+                    <button class="add-to-cart-button">Add to Cart</button>
+                </div>
+                <div class="card">
+                    <img id="bonnet-image" src="images/IMG_0392.WEBP" alt="A silk bow tie bonnet.">
+                    <h3>Bow Tie Bonnets</h3>
+                    <div class="color-options" id="bonnet-colors">
+                        <span class="color-swatch active" data-color="pink" style="background-color: #ffc0cb;" data-image="images/IMG_0392.WEBP"></span>
+                        <span class="color-swatch" data-color="black" style="background-color: #000000;" data-image="images/IMG_0395.WEBP"></span>
+                        <span class="color-swatch" data-color="blue" style="background-color: #87ceeb;" data-image="images/IMG_0394.WEBP"></span>
+                        <span class="color-swatch" data-color="purple" style="background-color: #800080;" data-image="images/IMG_0393.WEBP"></span>
+                        <span class="color-swatch" data-color="brown" style="background-color: #a52a2a;" data-image="images/IMG_0423.PNG"></span>
+                    </div>
+                    <p class="price">$4.69</p>
+                    <button class="add-to-cart-button">Add to Cart</button>
+                </div>
+                <div class="card">
+                    <img src="images/IMG_0418.JPG" alt="A variety of solid colored claw clips.">
+                    <h3>Flower Claw Clips</h3>
+                    <p class="price">$7.50</p>
+                    <button class="add-to-cart-button">Add to Cart</button>
+                </div>
+                <div class="card">
+                    <img id="tote-bag-image" src="images/IMG_0406.JPG" alt="A stylish, black tote bag with a geometric pattern.">
+                    <h3>Tote Bags</h3>
+                    <div class="color-options" id="tote-bag-colors">
+                      <span class="color-swatch active" data-color="black"
+style="background-color: #000000;" data-image="images/IMG_0406.JPG"></span>
+                      <span class="color-swatch" data-color="pink"
+style="background-color: #ffc0cb;" data-image="images/IMG_0405.JPG"></span>
+                      <span class="color-swatch" data-color="white"
+style="background-color: #ffffff;" data-image="images/IMG_0407.JPG"></span>
+                    </div>
+                    <p class="price">$14.07</p>
+                    <button class="add-to-cart-button">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="about-section" style="display: none;">
+        <div class="container page-content">
+            <img src="images/alleyaccessorieslogo.jpeg" alt="Alley Accessories Logo" style="max-width: 100%; height: auto; margin-bottom: 20px;">
+            <h2>Our Story</h2>
+            <p style="max-width: 700px; margin: 0 auto;">Alley Accessories was born out of a passion for unique and stylish pieces that complete any look. We believe that accessories are more than just items; they are a form of self-expression. Our mission is to provide high-quality, beautiful accessories that help you express your individual style.</p>
+        </div>
+    </div>
+
+    <div id="cart-section" style="display: none;">
+        <div class="container page-content">
+            <h2>Your Cart</h2>
+            <ul class="cart-items">
+                </ul>
+            <div class="cart-summary">
+                <span id="cart-total">Total: JMD$0.00</span>
+                <button class="checkout-btn" id="checkout-button" style="display:none;">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact-section" style="display: none;">
+        <div class="container page-content">
+            <h2>Contact Us</h2>
+            <div class="contact-details">
+                <p>We'd love to hear from you! Feel free to reach out with any questions.</p>
+                <p>Email: <a href="mailto:accessoriesbyalley@gmail.com">accessoriesbyalley@gmail.com</a></p>
+                <div class="social-links">
+                    <p>Find us on social media:</p>
+                    <a href="https://www.instagram.com/your-username" target="_blank">
+                        <img src="images/instagramlogo.png" alt="Instagram Logo" class="logo-img">
+                    </a>
+                    <a href="https://www.tiktok.com/@your-username" target="_blank">
+                        <img src="images/Tiktoklogo.png" alt="TikTok Logo" class="logo-img">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 Alley Accessories. All rights reserved.</p>
+    </div>
 
     <div id="message-modal" class="modal">
         <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <p id="modal-text"></p>
+            <p id="modal-text">This is a placeholder message.</p>
         </div>
     </div>
 
-    <div id="checkout-modal" class="modal" style="display: none;">
+    <div id="confirm-modal" class="modal">
         <div class="modal-content">
-            <p>Are you sure you want to checkout?</p>
-            <div class="modal-buttons">
-                <button id="confirm-checkout">Confirm</button>
-                <button id="cancel-checkout">Cancel</button>
+            <p>Do you want to confirm your order?</p>
+            <div class="confirm-modal-buttons">
+                <button class="confirm-button" id="confirm-order-button">Confirm</button>
+                <button class="cancel-button" id="cancel-order-button">Cancel</button>
             </div>
         </div>
     </div>
 
-    <div id="home-section" class="page-section hero-section">
-        <div class="container">
-            <div class="hero-content">
-                <h2>Welcome to Alley Accessories</h2>
-                <p>Your one-stop shop for unique accessories that stand out!</p>
-                <button id="hero-shop-all-button" class="btn">Shop Now</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="shop-all-section" class="page-section" style="display: none;">
-        <div class="container">
-            <h2>Shop All</h2>
-            <div class="shop-controls">
-                <div id="currency-selector" class="dropdown currency-selector">
-                    <button class="dropdown-button currency-button">JMD</button>
-                    <div class="dropdown-content currency-dropdown">
-                        <a href="#" data-currency="jmd">JMD</a>
-                        <a href="#" data-currency="usd">USD</a>
-                    </div>
-                </div>
-            </div>
-            <div class="product-grid">
-                <div class="card">
-                    <img id="keychain-image" src="images/IMG_0262.jpg" alt="A green turtle keychain">
-                    <h3>Turtle Keychains</h3>
-                    <p class="price">$0.94</p>
-                    <div id="keychain-colors" class="color-swatches">
-                        <div class="color-swatch green active" data-image="images/IMG_0262.jpg" data-color="green"></div>
-                        <div class="color-swatch purple" data-image="images/IMG_0263.jpg" data-color="purple"></div>
-                    </div>
-                    <button class="add-to-cart-button pressing-btn">Add to Cart</button>
-                </div>
-                
-                <div class="card">
-                    <img src="images/IMG_0264.jpg" alt="A green dice keychain">
-                    <h3>Dice Keychain</h3>
-                    <p class="price">$0.63</p>
-                    <button class="add-to-cart-button pressing-btn">Add to Cart</button>
-                </div>
-
-                <div class="card">
-                    <img src="images/IMG_0425.jpg" alt="A tennis racket and ball keychain on white background">
-                    <h3>Tennis Racket and Ball Keychain</h3>
-                    <p class="price">$0.63</p>
-                    <button class="add-to-cart-button pressing-btn">Add to Cart</button>
-                </div>
-
-                <div class="card">
-                    <img id="exfoliating-glove-image" src="images/IMG_0265.jpg" alt="A pair of exfoliating gloves">
-                    <h3>Exfoliating Gloves</h3>
-                    <p class="price">$1.88</p>
-                    <div id="glove-colors" class="color-swatches">
-                        <div class="color-swatch purple-glove active" data-image="images/IMG_0265.jpg" data-color="purple"></div>
-                        <div class="color-swatch pink-glove" data-image="images/IMG_0266.jpg" data-color="pink"></div>
-                        <div class="color-swatch blue-glove" data-image="images/IMG_0267.jpg" data-color="blue"></div>
-                        <div class="color-swatch green-glove" data-image="images/IMG_0268.jpg" data-color="green"></div>
-                    </div>
-                    <button class="add-to-cart-button pressing-btn">Add to Cart</button>
-                </div>
-
-                <div class="card">
-                    <img id="hair-bow-image" src="images/IMG_0269.jpg" alt="A large pink hair bow">
-                    <h3>Large Hair Bow</h3>
-                    <p class="price">$3.13</p>
-                    <div id="bow-colors" class="color-swatches">
-                        <div class="color-swatch pink-bow active" data-image="images/IMG_0269.jpg" data-color="pink"></div>
-                        <div class="color-swatch blue-bow" data-image="images/IMG_0270.jpg" data-color="blue"></div>
-                        <div class="color-swatch purple-bow" data-image="images/IMG_0271.jpg" data-color="purple"></div>
-                    </div>
-                    <button class="add-to-cart-button pressing-btn">Add to Cart</button>
-                </div>
-
-                <div class="card">
-                    <img src="images/IMG_0272.jpg" alt="A bottle of cherry lip oil">
-                    <h3>Cherry Lip Oil</h3>
-                    <p class="price">$2.19</p>
-                    <button class="add-to-cart-button pressing-btn">Add to Cart</button>
-                </div>
-
-                <div class="card">
-                    <img src="images/IMG_0273.jpg" alt="A bottle of Elf Crystal Clear lip oil">
-                    <h3>Elf Crystal Clear Lip Oil</h3>
-                    <p class="price">$5.00</p>
-                    <button class="add-to-cart-button pressing-btn">Add to Cart</button>
-                </div>
-
-                <div class="card">
-                    <img src="images/IMG_0274.jpg" alt="A tube of Elf Grape Squeeze Me lip balm">
-                    <h3>Elf Grape Squeeze Me Lip Balm</h3>
-                    <p class="price">$7.50</p>
-                    <button class="add-to-cart-button pressing-btn">Add to Cart</button>
-                </div>
-                
-                <div class="card">
-                    <img src="images/IMG_0275.jpg" alt="A tube of Elf Peach Squeeze Me lip balm">
-                    <h3>Elf Peach Squeeze Me Lip Balm</h3>
-                    <p class="price">$7.50</p>
-                    <button class="add-to-cart-button pressing-btn">Add to Cart</button>
-                </div>
-
-                <div class="card">
-                    <img src="images/IMG_0276.jpg" alt="A bottle of NK Strawberry lip gloss">
-                    <h3>NK Strawberry Lip Gloss</h3>
-                    <p class="price">$2.19</p>
-                    <button class="add-to-cart-button pressing-btn">Add to Cart</button>
-                </div>
-
-                <div class="card">
-                    <img src="images/IMG_0277.jpg" alt="A bottle of NK Mint lip gloss">
-                    <h3>NK Mint Lip Gloss</h3>
-                    <p class="price">$2.19</p>
-                    <button class="add-to-cart-button pressing-btn">Add to Cart</button>
-                </div>
-                
-                <div class="card">
-                    <img src="images/IMG_0278.jpg" alt="A bottle of NK Bubble-gum lip gloss">
-                    <h3>NK Bubble-gum Lip Gloss</h3>
-                    <p class="price">$2.19</p>
-                    <button class="add-to-cart-button pressing-btn">Add to Cart</button>
-                </div>
-                
-                <div class="card">
-                    <img id="vaseline-lip-therapy-image" src="images/IMG_0280.jpg" alt="A tube of Vaseline Lip Therapy Balm in a stick">
-                    <h3>Vaseline Lip Therapy Balm</h3>
-                    <p class="price">$2.19</p>
-                    <div id="lip-balm-flavours" class="flavour-swatches">
-                        <div class="flavour-swatch original active" data-image="images/IMG_0280.jpg" data-flavour="original"></div>
-                        <div class="flavour-swatch cocoa" data-image="images/IMG_0281.jpg" data-flavour="cocoa"></div>
-                        <div class="flavour-swatch rose" data-image="images/IMG_0282.jpg" data-flavour="rose"></div>
-                        <div class="flavour-swatch cherry" data-image="images/IMG_0283.jpg" data-flavour="cherry"></div>
-                    </div>
-                    <button class="add-to-cart-button pressing-btn">Add to Cart</button>
-                </div>
-                
-                <div class="card">
-                    <img id="bonnet-image" src="images/IMG_0430.jpg" alt="A purple bow tie bonnet">
-                    <h3>Bow Tie Bonnets</h3>
-                    <p class="price">$4.69</p>
-                    <div id="bonnet-colors" class="color-swatches">
-                        <div class="color-swatch purple-bonnet active" data-image="images/IMG_0430.jpg" data-color="purple"></div>
-                        <div class="color-swatch black-bonnet" data-image="images/IMG_0431.jpg" data-color="black"></div>
-                        <div class="color-swatch burgundy-bonnet" data-image="images/IMG_0432.jpg" data-color="burgundy"></div>
-                        <div class="color-swatch pink-bonnet" data-image="images/IMG_0433.jpg" data-color="pink"></div>
-                    </div>
-                    <button class="add-to-cart-button pressing-btn">Add to Cart</button>
-                </div>
-
-                <div class="card">
-                    <img src="images/IMG_0434.jpg" alt="A set of four flower claw clips in pink, purple, blue, and green">
-                    <h3>Flower Claw Clips</h3>
-                    <p class="price">$7.50</p>
-                    <button class="add-to-cart-button pressing-btn">Add to Cart</button>
-                </div>
-
-                <div class="card">
-                    <img id="tote-bag-image" src="images/IMG_0435.jpg" alt="A black tote bag">
-                    <h3>Tote Bags</h3>
-                    <p class="price">$14.07</p>
-                    <div id="tote-bag-colors" class="color-swatches">
-                        <div class="color-swatch black-tote active" data-image="images/IMG_0435.jpg" data-color="black"></div>
-                        <div class="color-swatch pink-tote" data-image="images/IMG_0436.jpg" data-color="pink"></div>
-                        <div class="color-swatch blue-tote" data-image="images/IMG_0437.jpg" data-color="blue"></div>
-                    </div>
-                    <button class="add-to-cart-button pressing-btn">Add to Cart</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="about-section" class="page-section" style="display: none;">
-        <div class="container">
-            <h2>About Us</h2>
-            <div class="about-content">
-                <p>Accessories by Alley was born out of a passion for unique and stylish pieces thhat complete any look. We believe that accessories are more than just items; they are a form of self-expression. Our mission is to provide high quality, beautiful accessories that help you express your individual style.</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="cart-section" class="page-section" style="display: none;">
-        <div class="container">
-            <h2>Your Cart</h2>
-            <ul class="cart-items">
-                <li>Your cart is empty.</li>
-            </ul>
-            <div class="cart-summary">
-                <div class="cart-total">
-                    <strong>Total:</strong> <span id="cart-total">$0.00</span>
-                </div>
-                <button class="checkout-button pressing-btn">Checkout</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="contact-section" class="page-section" style="display: none;">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <form id="contact-form" action="mailto:accessoriesbyalley@gmail.com" method="post" enctype="text/plain">
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="subject">Subject:</label>
-                    <input type="text" id="subject" name="subject" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="submit-button">Send Message</button>
-            </form>
-        </div>
-    </div>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="social-media">
-                <a href="https://www.instagram.com/alley_.accessories" target="_blank">Instagram</a>
-                <a href="https://www.tiktok.com/@alley.accessories" target="_blank">TikTok</a>
-            </div>
-            <p>&copy; 2025 Accessories by Alley</p>
-        </div>
-    </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -694,14 +931,6 @@
             const aboutSection = document.getElementById('about-section');
             const cartSection = document.getElementById('cart-section');
             const contactSection = document.getElementById('contact-section');
-
-            // Modal elements
-            const messageModal = document.getElementById('message-modal');
-            const checkoutModal = document.getElementById('checkout-modal');
-            const messageModalText = document.getElementById('modal-text');
-            const confirmCheckoutButton = document.getElementById('confirm-checkout');
-            const cancelCheckoutButton = document.getElementById('cancel-checkout');
-            const closeButton = document.querySelector('.close-button');
 
             const shopNowButton = document.getElementById('hero-shop-all-button');
 
@@ -742,8 +971,8 @@
             
             cartLink.addEventListener('click', (e) => {
                 e.preventDefault();
-                updateCartDisplay();
                 showSection(cartSection);
+                updateCartDisplay();
             });
             
             shopNowButton.addEventListener('click', (e) => {
@@ -751,98 +980,68 @@
                 showSection(shopAllSection);
             });
 
-            // Modal functionality for quick messages
-            const showMessageModal = (message) => {
-                messageModalText.textContent = message;
-                messageModal.style.display = 'block';
-                messageModal.classList.remove('fade-out');
-                setTimeout(() => {
-                    messageModal.classList.add('fade-out');
-                }, 2500);
-            };
+            // Modal elements
+            const messageModal = document.getElementById('message-modal');
+            const confirmModal = document.getElementById('confirm-modal');
+            const modalText = document.getElementById('modal-text');
 
-            closeButton.addEventListener('click', () => {
-                messageModal.style.display = 'none';
-            });
-
-            window.addEventListener('click', (e) => {
-                if (e.target === messageModal) {
-                    messageModal.style.display = 'none';
+            const showModal = (modalElement, message, autoHide = false) => {
+                if (message) {
+                    modalText.textContent = message;
                 }
-            });
-
-            // Checkout modal functionality
-            const showCheckoutModal = () => {
-                checkoutModal.style.display = 'block';
+                modalElement.style.display = 'block';
+                setTimeout(() => {
+                    modalElement.style.opacity = 1;
+                }, 10); // Start transition
+                if (autoHide) {
+                    setTimeout(() => {
+                        modalElement.style.opacity = 0;
+                        setTimeout(() => {
+                            modalElement.style.display = 'none';
+                        }, 500); // Wait for fade-out to finish
+                    }, 2500);
+                }
             };
+            
+            const hideModal = (modalElement) => {
+                modalElement.style.opacity = 0;
+                setTimeout(() => {
+                    modalElement.style.display = 'none';
+                }, 500);
+            }
 
-            cancelCheckoutButton.addEventListener('click', () => {
-                checkoutModal.style.display = 'none';
-            });
-
-            confirmCheckoutButton.addEventListener('click', () => {
-                checkoutModal.style.display = 'none';
-                showMessageModal('Order placed, thanks.');
-                cart = []; // Clear the cart
-                updateCartDisplay();
-            });
-
-            // Close dropdowns when clicking outside
-            window.addEventListener('click', (e) => {
+            // Click outside dropdowns to close them
+            document.addEventListener('click', (e) => {
                 const filterSelector = document.getElementById('filter-selector');
                 const currencySelector = document.getElementById('currency-selector');
-
-                if (filterSelector && !filterSelector.contains(e.target) && filterSelector.classList.contains('active')) {
+                
+                if (!filterSelector.contains(e.target)) {
                     filterSelector.classList.remove('active');
                 }
-                if (currencySelector && !currencySelector.contains(e.target) && currencySelector.classList.contains('active')) {
+                
+                if (!currencySelector.contains(e.target)) {
                     currencySelector.classList.remove('active');
                 }
             });
-            
 
-            // Color swatch functionality for products
-            const setupColorSwatches = (containerId, imageId) => {
-                const container = document.getElementById(containerId);
-                const image = document.getElementById(imageId);
-                if (container && image) {
-                    container.addEventListener('click', (e) => {
-                        const target = e.target;
-                        if (target.classList.contains('color-swatch')) {
-                            // Remove active class from all swatches in this container
-                            Array.from(container.children).forEach(swatch => {
-                                swatch.classList.remove('active');
-                            });
-                            // Add active class to the clicked swatch
-                            target.classList.add('active');
-                            // Change the main product image based on the data-image attribute
-                            image.src = target.getAttribute('data-image');
-                            image.alt = `A ${target.getAttribute('data-color')} version of the product.`;
-                        }
-                    });
-                }
-            };
 
-            // Flavour swatch functionally for products
-            const setupFlavourSwatches = (containerId, imageId) => {
-                const container = document.getElementById(containerId);
-                const image = document.getElementById(imageId);
-                if (container && image) {
-                    container.addEventListener('click', (e) => {
-                        const target = e.target;
-                        if (target.classList.contains('flavour-swatch')) {
-                            Array.from(container.children).forEach(swatch => {
-                                swatch.classList.remove('active');
-                            });
-                            
-                            target.classList.add('active');
-                            image.src = target.getAttribute('data-image');
-                            image.alt = `A ${target.getAttribute('data-flavour')} version of the product.`;
-                        }
-                    });
-                }
-            };
-            
+            // Filter and currency dropdown logic
+            const filterSelector = document.getElementById('filter-selector');
+            const currencySelector = document.getElementById('currency-selector');
+            const filterButton = filterSelector.querySelector('.filter-button');
+            const currencyButton = currencySelector.querySelector('.currency-button');
+
+            filterButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                filterSelector.classList.toggle('active');
+            });
+
+            currencyButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                currencySelector.classList.toggle('active');
+            });
+
+            // Product data and currency conversion
             const pricesInUSD = {
                 'Turtle Keychains': 0.94,
                 'Dice Keychain': 0.63,
@@ -864,14 +1063,12 @@
             
             const conversionRates = {
                 usd: 1,
-                jmd: 155.00
+                jmd: 155.00 
             };
 
-            let currentCurrency = document.body.dataset.currency;
+            let currentCurrency = 'jmd'; 
+            
             const currencyLinks = document.querySelectorAll('.currency-dropdown a');
-            const cartCountElement = document.querySelector('.cart-count');
-            const checkoutButton = document.querySelector('.checkout-button');
-
             const updatePrices = () => {
                 const productCards = document.querySelectorAll('.card');
                 productCards.forEach(card => {
@@ -898,104 +1095,163 @@
             });
 
             updatePrices();
-            
-            const cartItemsList = document.querySelector('.cart-items');
-            const addToCartButtons = document.querySelectorAll('.add-to-cart-button');
-            const cartTotalElement = document.getElementById('cart-total');
-            let cart = [];
 
+            // Cart functionality
+            const cartItemsList = document.querySelector('.cart-items');
+            const cartTotalElement = document.getElementById('cart-total');
+            const checkoutButton = document.getElementById('checkout-button');
+            const cartCountElement = document.querySelector('.cart-count');
+            let cart = [];
+            
             const updateCartDisplay = () => {
                 cartItemsList.innerHTML = '';
                 let total = 0;
-                if (cart.length > 0) {
-                    cart.forEach((item, index) => {
-                        const li = document.createElement('li');
-                        li.classList.add('cart-item');
-                        let priceText = '';
-                        let convertedPrice = item.price * conversionRates[currentCurrency] * item.quantity;
-                        let currencySymbol = currentCurrency === 'usd' ? '$' : 'JMD$';
-                        priceText = `${currencySymbol}${convertedPrice.toFixed(2)}`;
-
-                        li.innerHTML = `
-                            <span>${item.name}</span>
-                            <div class="quantity-controls">
-                                <button class="quantity-decrease pressing-btn" data-index="${index}">-</button>
-                                <span>${item.quantity}</span>
-                                <button class="quantity-increase pressing-btn" data-index="${index}">+</button>
-                            </div>
-                            <span class="cart-item-price">${priceText}</span>
-                            <button class="remove-item pressing-btn" data-index="${index}">Remove</button>
-                        `;
-                        cartItemsList.appendChild(li);
-                        total += item.price * item.quantity;
-                    });
-                } else {
-                    cartItemsList.innerHTML = '<li>Your cart is empty.</li>';
-                }
-
-                if (cartTotalElement) {
-                    const convertedTotal = total * conversionRates[currentCurrency];
+                cart.forEach((item, index) => {
+                    const li = document.createElement('li');
+                    li.classList.add('cart-item');
+                    
+                    let priceText = '';
+                    let convertedPrice = item.price * conversionRates[currentCurrency];
                     let currencySymbol = currentCurrency === 'usd' ? '$' : 'JMD$';
-                    cartTotalElement.textContent = `${currencySymbol}${convertedTotal.toFixed(2)}`;
-                }
-                cartCountElement.textContent = cart.length;
-            };
+                    priceText = `${currencySymbol}${convertedPrice.toFixed(2)}`;
 
-            addToCartButtons.forEach(button => {
+                    li.innerHTML = `
+                        <div class="cart-item-info">
+                            <span>${item.name}</span>
+                            <span>${priceText}</span>
+                        </div>
+                        <div class="cart-item-actions">
+                            <div class="quantity-control">
+                                <button class="quantity-btn decrease-btn" data-index="${index}">-</button>
+                                <span>${item.quantity}</span>
+                                <button class="quantity-btn increase-btn" data-index="${index}">+</button>
+                            </div>
+                            <button class="remove-btn" data-index="${index}">Remove</button>
+                        </div>
+                    `;
+                    cartItemsList.appendChild(li);
+                    total += item.price * item.quantity;
+                });
+
+                const convertedTotal = total * conversionRates[currentCurrency];
+                let currencySymbol = currentCurrency === 'usd' ? '$' : 'JMD$';
+                cartTotalElement.textContent = `Total: ${currencySymbol}${convertedTotal.toFixed(2)}`;
+                
+                // Show/hide checkout button and update count
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                if (totalItems > 0) {
+                    checkoutButton.style.display = 'block';
+                    cartCountElement.textContent = totalItems;
+                    cartCountElement.style.display = 'flex';
+                } else {
+                    checkoutButton.style.display = 'none';
+                    cartCountElement.style.display = 'none';
+                }
+            };
+            
+            document.querySelectorAll('.add-to-cart-button').forEach(button => {
                 button.addEventListener('click', (e) => {
-                    e.preventDefault();
                     const card = e.target.closest('.card');
                     const productName = card.querySelector('h3').textContent.trim();
-                    const productPriceUSD = pricesInUSD[productName];
+                    const usdPrice = pricesInUSD[productName];
 
-                    if (productPriceUSD !== undefined) {
+                    if (usdPrice !== undefined) {
                         const existingItem = cart.find(item => item.name === productName);
                         if (existingItem) {
                             existingItem.quantity++;
-                            showMessageModal(`${productName} quantity increased to ${existingItem.quantity}!`);
                         } else {
-                            cart.push({ name: productName, price: productPriceUSD, quantity: 1 });
-                            showMessageModal(`${productName} has been added to your cart!`);
+                            cart.push({ name: productName, price: usdPrice, quantity: 1 });
                         }
+                        showModal(messageModal, `${productName} added to cart!`, true);
+                        updateCartDisplay();
                     }
-                    updateCartDisplay();
                 });
             });
-            
-            // Handle quantity and removal in the cart
+
             cartItemsList.addEventListener('click', (e) => {
-                if (e.target.classList.contains('quantity-increase')) {
-                    const index = e.target.dataset.index;
+                if (e.target.classList.contains('remove-btn')) {
+                    const index = e.target.getAttribute('data-index');
+                    cart.splice(index, 1);
+                    updateCartDisplay();
+                }
+                
+                if (e.target.classList.contains('increase-btn')) {
+                    const index = e.target.getAttribute('data-index');
                     cart[index].quantity++;
                     updateCartDisplay();
                 }
-                if (e.target.classList.contains('quantity-decrease')) {
-                    const index = e.target.dataset.index;
+                
+                if (e.target.classList.contains('decrease-btn')) {
+                    const index = e.target.getAttribute('data-index');
                     if (cart[index].quantity > 1) {
                         cart[index].quantity--;
                     } else {
-                        // Remove item if quantity is 1 and decreased
                         cart.splice(index, 1);
                     }
                     updateCartDisplay();
                 }
-                if (e.target.classList.contains('remove-item')) {
-                    const index = e.target.dataset.index;
-                    cart.splice(index, 1);
-                    updateCartDisplay();
-                }
+            });
+
+            // Checkout logic
+            const confirmOrderButton = document.getElementById('confirm-order-button');
+            const cancelOrderButton = document.getElementById('cancel-order-button');
+            
+            checkoutButton.addEventListener('click', () => {
+                showModal(confirmModal);
             });
             
-            // Checkout button
-            if (checkoutButton) {
-                checkoutButton.addEventListener('click', () => {
-                    if (cart.length > 0) {
-                        showCheckoutModal();
-                    } else {
-                        showMessageModal('Your cart is empty.');
-                    }
-                });
-            }
+            confirmOrderButton.addEventListener('click', () => {
+                hideModal(confirmModal);
+                showModal(messageModal, "Order placed, thanks!", true);
+                cart = [];
+                updateCartDisplay();
+            });
+
+            cancelOrderButton.addEventListener('click', () => {
+                hideModal(confirmModal);
+            });
+
+
+            // Color swatch functionality for products
+            const setupColorSwatches = (containerId, imageId) => {
+                const container = document.getElementById(containerId);
+                const image = document.getElementById(imageId);
+                if (container && image) {
+                    container.addEventListener('click', (e) => {
+                        const target = e.target;
+                        if (target.classList.contains('color-swatch')) {
+                            // Remove active class from all swatches in this container
+                            Array.from(container.children).forEach(swatch => {
+                                swatch.classList.remove('active');
+                            });
+                            // Add active class to the clicked swatch
+                            target.classList.add('active');
+                            // Change the main product image based on the data-image attribute
+                            image.src = target.getAttribute('data-image');
+                            image.alt = `A ${target.getAttribute('data-color')} version of the product.`;
+                        }
+                    });
+                }
+            };
+            // Flavour swatch functionally for products
+            const setupFlavourSwatches = (containerId, imageId) => {
+                const container = document.getElementById(containerId);
+                const image = document.getElementById(imageId);
+                if (container && image) {
+                    container.addEventListener('click', (e) => {
+                        const target = e.target;
+                        if (target.classList.contains('flavour-swatch')) {
+                            Array.from(container.children).forEach(swatch => {
+                                swatch.classList.remove('active');
+                            });
+                            
+                            target.classList.add('active');
+                            image.src = target.getAttribute('data-image');
+                            image.alt = `A ${target.getAttribute('data-flavour')} version of the product.`;
+                        }
+                    });
+                }
+            };
             
             // All function calls to make the swatches interactive
             setupColorSwatches('keychain-colors', 'keychain-image');
