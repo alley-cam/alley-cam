@@ -1152,6 +1152,7 @@ style="background-color: #ffffff;" data-image="images/IMG_0407.JPG"></span>
                 button.addEventListener('click', (e) => {
                     const card = e.target.closest('.card');
                     const productName = card.querySelector('h3').textContent.trim();
+                    console.log(productName);
                     const usdPrice = pricesInUSD[productName];
 
                     if (usdPrice !== undefined) {
