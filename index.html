@@ -918,25 +918,25 @@ style="background-color: #ffffff;" data-image="images/IMG_0407.JPG"></span>
 
 
     <script>
-            const pricesInUSD = {
-                'Turtle Keychains': 0.94,
-                'Dice Keychain': 0.63,
-                'Tennis Racket and Ball Keychain': 0.63,
-                'Exfoliating Gloves': 1.88,
-                'Large Hair Bow': 3.13,
-                'Cherry Lip Oil': 2.19,
-                'Elf Crystal Clear Lip Oil': 5.00,
-                'Elf Grape Squeeze Me Lip Balm': 7.50,
-                'Elf Peach Squeeze Me Lip Balm': 7.50,
-                'NK Strawberry Lip Gloss': 2.19,
-                'NK Mint Lip Gloss': 2.19,
-                'NK Bubble-gum Lip Gloss': 2.19,
-                'Vaseline Lip Therapy Balm': 2.19,
-                'Bow Tie Bonnets': 4.69,
-                'Flower Claw Clips': 7.50,
-                'Tote Bags': 14.07,
-            };
-        
+        const pricesInUSD = {
+            'Turtle Keychains': 0.94,
+            'Dice Keychain': 0.63,
+            'Tennis Racket and Ball Keychain': 0.63,
+            'Exfoliating Gloves': 1.88,
+            'Large Hair Bow': 3.13,
+            'Cherry Lip Oil': 2.19,
+            'Elf Crystal Clear Lip Oil': 5.00,
+            'Elf Grape Squeeze Me Lip Balm': 7.50,
+            'Elf Peach Squeeze Me Lip Balm': 7.50,
+            'NK Strawberry Lip Gloss': 2.19,
+            'NK Mint Lip Gloss': 2.19,
+            'NK Bubble-gum Lip Gloss': 2.19,
+            'Vaseline Lip Therapy Balm': 2.19,
+            'Bow Tie Bonnets': 4.69,
+            'Flower Claw Clips': 7.50,
+            'Tote Bags': 14.07,
+        };
+
         document.addEventListener('DOMContentLoaded', () => {
             // Get references to all the sections and navigation links
             const homeLink = document.getElementById('home-link');
@@ -1042,29 +1042,23 @@ style="background-color: #ffffff;" data-image="images/IMG_0407.JPG"></span>
                     currencySelector.classList.remove('active');
                 }
             });
-
-
             // Filter and currency dropdown logic
             const filterSelector = document.getElementById('filter-selector');
             const currencySelector = document.getElementById('currency-selector');
             const filterButton = filterSelector.querySelector('.filter-button');
             const currencyButton = currencySelector.querySelector('.currency-button');
-
             filterButton.addEventListener('click', (e) => {
                 e.stopPropagation();
                 filterSelector.classList.toggle('active');
             });
-
             currencyButton.addEventListener('click', (e) => {
                 e.stopPropagation();
                 currencySelector.classList.toggle('active');
             });
-            
             const conversionRates = {
                 usd: 1,
                 jmd: 155.00 
             };
-
             let currentCurrency = 'jmd'; 
             
             const currencyLinks = document.querySelectorAll('.currency-dropdown a');
@@ -1092,7 +1086,6 @@ style="background-color: #ffffff;" data-image="images/IMG_0407.JPG"></span>
                     updateCartDisplay();
                 });
             });
-
             updatePrices();
 
             // Cart functionality
@@ -1101,7 +1094,6 @@ style="background-color: #ffffff;" data-image="images/IMG_0407.JPG"></span>
             const checkoutButton = document.getElementById('checkout-button');
             const cartCountElement = document.querySelector('.cart-count');
             let cart = [];
-            
             const updateCartDisplay = () => {
                 cartItemsList.innerHTML = '';
                 let total = 0;
