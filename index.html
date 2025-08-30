@@ -1196,17 +1196,17 @@ style="background-color: #ffffff;" data-image="images/IMG_0407.JPG"></button>
                 const image = document.getElementById(imageId);
                 if (container && image) {
                     container.addEventListener('click', (e) => {
-                        const target = e.target;
-                        if (target.classList.contains('color-swatch')) {
+                        const button = e.target.closest('.color-swatch');
+                        if (button) {
                             // Remove active class from all swatches in this container
                             Array.from(container.children).forEach(swatch => {
                                 swatch.classList.remove('active');
                             });
                             // Add active class to the clicked swatch
-                            target.classList.add('active');
+                            button.classList.add('active');
                             // Change the main product image based on the data-image attribute
-                            image.src = target.getAttribute('data-image');
-                            image.alt = `A ${target.getAttribute('data-color')} version of the product.`;
+                            image.src = button.getAttribute('data-image');
+                            image.alt = `A ${button.getAttribute('data-color')} version of the product.`;
                         }
                     });
                 }
