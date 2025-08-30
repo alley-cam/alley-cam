@@ -916,27 +916,26 @@ style="background-color: #ffffff;" data-image="images/IMG_0407.JPG"></span>
         </div>
     </div>
 
-
     <script>
-        const pricesInUSD = {
-            'Turtle Keychains': 0.94,
-            'Dice Keychain': 0.63,
-            'Tennis Racket and Ball Keychain': 0.63,
-            'Exfoliating Gloves': 1.88,
-            'Large Hair Bow': 3.13,
-            'Cherry Lip Oil': 2.19,
-            'Elf Crystal Clear Lip Oil': 5.00,
-            'Elf Grape Squeeze Me Lip Balm': 7.50,
-            'Elf Peach Squeeze Me Lip Balm': 7.50,
-            'NK Strawberry Lip Gloss': 2.19,
-            'NK Mint Lip Gloss': 2.19,
-            'NK Bubble-gum Lip Gloss': 2.19,
-            'Vaseline Lip Therapy Balm': 2.19,
-            'Bow Tie Bonnets': 4.69,
-            'Flower Claw Clips': 7.50,
-            'Tote Bags': 14.07,
-        };
-
+            const pricesInUSD = {
+                'Turtle Keychains': 0.94,
+                'Dice Keychain': 0.63,
+                'Tennis Racket and Ball Keychain': 0.63,
+                'Exfoliating Gloves': 1.88,
+                'Large Hair Bow': 3.13,
+                'Cherry Lip Oil': 2.19,
+                'Elf Crystal Clear Lip Oil': 5.00,
+                'Elf Grape Squeeze Me Lip Balm': 7.50,
+                'Elf Peach Squeeze Me Lip Balm': 7.50,
+                'NK Strawberry Lip Gloss': 2.19,
+                'NK Mint Lip Gloss': 2.19,
+                'NK Bubble-gum Lip Gloss': 2.19,
+                'Vaseline Lip Therapy Balm': 2.19,
+                'Bow Tie Bonnets': 4.69,
+                'Flower Claw Clips': 7.50,
+                'Tote Bags': 14.07,
+            };
+        
         document.addEventListener('DOMContentLoaded', () => {
             // Get references to all the sections and navigation links
             const homeLink = document.getElementById('home-link');
@@ -955,7 +954,6 @@ style="background-color: #ffffff;" data-image="images/IMG_0407.JPG"></span>
 
             // All the pages on the site.
             const allSections = [homeSection, shopAllSection, aboutSection, cartSection, contactSection];
-
             // Function to show a specific section and hide all others
             const showSection = (sectionToShow) => {
                 allSections.forEach(section => {
@@ -972,33 +970,27 @@ style="background-color: #ffffff;" data-image="images/IMG_0407.JPG"></span>
                 e.preventDefault();
                 showSection(homeSection);
             });
-            
             shopLink.addEventListener('click', (e) => {
                 e.preventDefault();
                 showSection(shopAllSection);
             });
-            
             aboutLink.addEventListener('click', (e) => {
                 e.preventDefault();
                 showSection(aboutSection);
             });
-            
             contactLink.addEventListener('click', (e) => {
                 e.preventDefault();
                 showSection(contactSection);
             });
-            
             cartLink.addEventListener('click', (e) => {
                 e.preventDefault();
                 showSection(cartSection);
                 updateCartDisplay();
             });
-            
             shopNowButton.addEventListener('click', (e) => {
                 e.preventDefault();
                 showSection(shopAllSection);
             });
-
             // Modal elements
             const messageModal = document.getElementById('message-modal');
             const confirmModal = document.getElementById('confirm-modal');
@@ -1011,7 +1003,8 @@ style="background-color: #ffffff;" data-image="images/IMG_0407.JPG"></span>
                 modalElement.style.display = 'block';
                 setTimeout(() => {
                     modalElement.style.opacity = 1;
-                }, 10); // Start transition
+                }, 10);
+                // Start transition
                 if (autoHide) {
                     setTimeout(() => {
                         modalElement.style.opacity = 0;
@@ -1021,7 +1014,6 @@ style="background-color: #ffffff;" data-image="images/IMG_0407.JPG"></span>
                     }, 2500);
                 }
             };
-            
             const hideModal = (modalElement) => {
                 modalElement.style.opacity = 0;
                 setTimeout(() => {
@@ -1139,7 +1131,6 @@ style="background-color: #ffffff;" data-image="images/IMG_0407.JPG"></span>
                     cartCountElement.style.display = 'none';
                 }
             };
-            
             document.querySelectorAll('.add-to-cart-button').forEach(button => {
                 button.addEventListener('click', (e) => {
                     const card = e.target.closest('.card');
@@ -1183,7 +1174,6 @@ style="background-color: #ffffff;" data-image="images/IMG_0407.JPG"></span>
                     updateCartDisplay();
                 }
             });
-
             // Checkout logic
             const confirmOrderButton = document.getElementById('confirm-order-button');
             const cancelOrderButton = document.getElementById('cancel-order-button');
@@ -1191,61 +1181,15 @@ style="background-color: #ffffff;" data-image="images/IMG_0407.JPG"></span>
             checkoutButton.addEventListener('click', () => {
                 showModal(confirmModal);
             });
-            
             confirmOrderButton.addEventListener('click', () => {
                 hideModal(confirmModal);
                 showModal(messageModal, "Order placed, thanks!", true);
                 cart = [];
                 updateCartDisplay();
             });
-
             cancelOrderButton.addEventListener('click', () => {
                 hideModal(confirmModal);
             });
-            // Color swatch functionality for products
-            const setupColorSwatches = (containerId, imageId) => {
-                const container = document.getElementById(containerId);
-                const image = document.getElementById(imageId);
-                if (container && image) {
-                    container.addEventListener('click', (e) => {
-                        const target = e.target;
-                        if (target.classList.contains('color-swatch')) {
-                            // Remove active class from all swatches in this container
-                            Array.from(container.children).forEach(swatch => {
-                                swatch.classList.remove('active');
-                            });
-                            // Add active class to the clicked swatch
-                            target.classList.add('active');
-                            // Change the main product image based on the data-image attribute
-                            image.src = target.getAttribute('data-image');
-                            image.alt = 'A ${target.getAttribute('data-color')} version of the product.';
-                        }
-                    });
-                }
-            };
-
-            // Flavour swatch functionality for products
-            const setupFlavourSwatches = (containerId, imageId) => {
-                const container = document.getElementById(containerId);
-                const images = document.getElementById(imageId);
-                if (container && image) {
-                    container.addEventListener('click', (e) => {
-                        const target = e.target;
-                        if (target.classList.contains('flavour-swatch')) {
-                            Array.from(container.children).forEach(swatch => {
-                                swatch.classList.remove('active');
-                            });
-
-                            target.classList.add('active');
-                            image.src = target.getAttribute('data-image');
-                            image.alt = 'A ${target.getAttribute('data-flavour')} version of the product.';
-                        }
-                    });
-                }
-            };
-
-            // All function calls to make the swatches interactive
-            setupColorSwatches('keychain-colors', 'keychain-image');
         });
     </script>
 </body>
