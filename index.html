@@ -1210,56 +1210,6 @@ style="background-color: #ffffff;" data-image="images/IMG_0407.JPG"></span>
             cancelOrderButton.addEventListener('click', () => {
                 hideModal(confirmModal);
             });
-
-
-            // Color swatch functionality for products
-            const setupColorSwatches = (containerId, imageId) => {
-                const container = document.getElementById(containerId);
-                const image = document.getElementById(imageId);
-                if (container && image) {
-                    container.addEventListener('click', (e) => {
-                        const swatchElement = e.target.closest('.color-swatch');
-                        if (swatchElement) {
-                            // Remove active class from all swatches in this container
-                            Array.from(container.children).forEach(swatch => {
-                                swatch.classList.remove('active');
-                            });
-                            // Add active class to the clicked swatch
-                            target.classList.add('active');
-                            // Change the main product image based on the data-image attribute
-                            image.src = swatchElement.getAttribute('data-image');
-                            image.alt = `A ${swatchElement.getAttribute('data-color')} version of the product.`;
-                        }
-                    });
-                }
-            };
-            // Flavour swatch functionally for products
-            const setupFlavourSwatches = (containerId, imageId) => {
-                const container = document.getElementById(containerId);
-                const image = document.getElementById(imageId);
-                if (container && image) {
-                    container.addEventListener('click', (e) => {
-                        const swatchElement = e.target.closest('.flavour-swatch');
-                        if (swatchElement) {
-                            Array.from(container.children).forEach(swatch => {
-                                swatch.classList.remove('active');
-                            });
-                            
-                            target.classList.add('active');
-                            image.src = swatchElement.getAttribute('data-image');
-                            image.alt = `A ${swatchElement.getAttribute('data-flavour')} version of the product.`;
-                        }
-                    });
-                }
-            };
-            
-            // All function calls to make the swatches interactive
-            setupColorSwatches('keychain-colors', 'keychain-image');
-            setupColorSwatches('bonnet-colors', 'bonnet-image');
-            setupColorSwatches('glove-colors', 'exfoliating-glove-image');
-            setupColorSwatches('bow-colors', 'hair-bow-image');
-            setupColorSwatches('tote-bag-colors', 'tote-bag-image');
-            setupFlavourSwatches('lip-balm-flavours', 'vaseline-lip-therapy-image');
         });
     </script>
 </body>
