@@ -1218,8 +1218,8 @@ style="background-color: #ffffff;" data-image="images/IMG_0407.JPG"></span>
                 const image = document.getElementById(imageId);
                 if (container && image) {
                     container.addEventListener('click', (e) => {
-                        const target = e.target;
-                        if (target.classList.contains('color-swatch')) {
+                        const swatchElement = e.target.closest('.color-swatch');
+                        if (swatchElement) {
                             // Remove active class from all swatches in this container
                             Array.from(container.children).forEach(swatch => {
                                 swatch.classList.remove('active');
@@ -1227,8 +1227,8 @@ style="background-color: #ffffff;" data-image="images/IMG_0407.JPG"></span>
                             // Add active class to the clicked swatch
                             target.classList.add('active');
                             // Change the main product image based on the data-image attribute
-                            image.src = target.getAttribute('data-image');
-                            image.alt = `A ${target.getAttribute('data-color')} version of the product.`;
+                            image.src = swatchElement.getAttribute('data-image');
+                            image.alt = `A ${swatchElement.getAttribute('data-color')} version of the product.`;
                         }
                     });
                 }
@@ -1239,15 +1239,15 @@ style="background-color: #ffffff;" data-image="images/IMG_0407.JPG"></span>
                 const image = document.getElementById(imageId);
                 if (container && image) {
                     container.addEventListener('click', (e) => {
-                        const target = e.target;
-                        if (target.classList.contains('flavour-swatch')) {
+                        const swatchElement = e.target.closest('.flavour-swatch');
+                        if (swatchElement) {
                             Array.from(container.children).forEach(swatch => {
                                 swatch.classList.remove('active');
                             });
                             
                             target.classList.add('active');
-                            image.src = target.getAttribute('data-image');
-                            image.alt = `A ${target.getAttribute('data-flavour')} version of the product.`;
+                            image.src = swatchElement.getAttribute('data-image');
+                            image.alt = `A ${swatchElement.getAttribute('data-flavour')} version of the product.`;
                         }
                     });
                 }
