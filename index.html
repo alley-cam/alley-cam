@@ -713,9 +713,9 @@
             <h2 class="products-heading">Our Full Collection</h2>
             <div class="main-content">
                 <div class="card">
-                    <img id="keychain-image" src="images/IMG_0397.JPG" alt="A blue turtle keychain.">
+                    <img id="turtle-keychain-image" src="images/IMG_0397.JPG" alt="A blue turtle keychain.">
                     <h3>Turtle Keychains</h3>
-                    <div class="color-options" id="keychain-colors">
+                    <div class="color-options" id="turtle-keychain-colors">
                         <span class="color-swatch active" data-color="blue" style="background-color: #87ceeb;" data-image="images/IMG_0397.JPG"></span>
                         <span class="color-swatch" data-color="pink" style="background-color: #ffc0cb;" data-image="images/IMG_0398.JPG"></span>
                         <span class="color-swatch" data-color="purple" style="background-color: #800080;" data-image="images/IMG_0399.JPG"></span>
@@ -1190,6 +1190,53 @@ style="background-color: #ffffff;" data-image="images/IMG_0407.JPG"></span>
             cancelOrderButton.addEventListener('click', () => {
                 hideModal(confirmModal);
             });
+            // Color swatch functionality for products
+            const setupColorSwatches = (containerId, imageId) => {
+                const container = document.getElementById(containerId);
+                const image = document.getElementById(imageId);
+                if (container && image) {
+                    container.addEventListener('click', (e) => {
+                        const target = e.target;
+                        if (target.classList.contains('color-swatch')) {
+                            // Remove active class from all swatches in this container
+                            Array.from(container.children).forEach(swatch => {
+                                swatch.classList.remove('active');
+                            });
+                            // Add active class to the clicked swatch
+                            target.classList.add('active');
+                            // Change the main product image based on the data-image attribute
+                            image.src = target.getAttribute('data-image');
+                            image.alt = `A ${target.getAttribute('data-color')} version of the product.`;
+                        }
+                    });
+                }
+            };
+            // Flavour swatch functionally for products
+            const setupFlavourSwatches = (containerId, imageId) => {
+                const container = document.getElementById(containerId);
+                const image = document.getElementById(imageId);
+                if (container && image) {
+                    container.addEventListener('click', (e) => {
+                        const target = e.target;
+                        if (target.classList.contains('flavour-swatch')) {
+                            Array.from(container.children).forEach(swatch => {
+                                swatch.classList.remove('active');
+                            });
+                          
+                            target.classList.add('active');
+                            image.src = target.getAttribute('data-image');
+                            image.alt = `A ${target.getAttribute('data-flavour')} version of the product.`;
+                        }
+                    });
+                }
+            };
+            // All function calls to make the swatches interactive
+            setupColorSwatches('keychain-colors', 'keychain-image');
+            setupColorSwatches('bonnet-colors', 'bonnet-image');
+            setupColorSwatches('glove-colors', 'exfoliating-glove-image');
+            setupColorSwatches('bow-colors', 'hair-bow-image');
+            setupColorSwatches('tote-bag-colors', 'tote-bag-image');
+            setupFlavourSwatches('lip-balm-flavours', 'vaseline-lip-therapy-image');
         });
     </script>
 </body>
