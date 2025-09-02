@@ -19,13 +19,23 @@
         /* Header styling with a logo, navigation, and a subtle drop shadow */
         .navbar {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            padding: 10px 0;
+            padding: 10px 5%;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
             border-bottom: 2px solid #e9967a; /* Lighter border color */
             margin-bottom: 20px;
             background-color: #fdf7e9; /* Changed to a warm cream color */
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .logo img {
+            max-width: 150px;
+            height: auto;
         }
 
         /* Logo text style */
@@ -42,7 +52,7 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 15px; /* Added cursor to indicate interactivity */
+            gap: 20px; /* Added cursor to indicate interactivity */
         }
 
         .nav-links a {
@@ -97,17 +107,16 @@
         
         .cart-count {
             position: absolute;
-            top: -5px;
-            right: -5px;
+            top: -8px;
+            right: -8px;
             background-color: red;
             color: white;
             border-radius: 50%;
-            width: 20px;
-            height: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 12px;
+            font-size: 10px;
+            padding: 3px 6px;
             font-weight: bold; 
         }
 
