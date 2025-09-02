@@ -1,13 +1,13 @@
  <style>
         /* General body styling for a clean, professional look */
         body {
-            padding-top: 200px;
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #fff0f5; /* Changed to an extremely light pink */
             color: #333; /* Text color changed to dark for readability */
             line-height: 1.6;
+            padding-top: 100px;
         }
 
         /* Container to center the content and apply a max-width */
@@ -23,7 +23,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 5%;
+            padding: 10px 20px;
             width: 100%;
             position: fixed;
             top: 0;
@@ -36,7 +36,7 @@
         }
 
         .logo img {
-            max-width: 150px;
+            max-width: 100px;
             height: auto;
         }
 
@@ -111,15 +111,15 @@
         .cart-count {
             position: absolute;
             top: -8px;
-            right: -8px;
+            right: -12px;
             background-color: red;
             color: white;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 10px;
-            padding: 3px 6px;
+            font-size: 8px;
+            padding: 2px 4px;
             font-weight: bold; 
         }
 
