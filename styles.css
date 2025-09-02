@@ -76,8 +76,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 32px;
-            height: 32px;
+            width: auto;
+            height: auto;
+            padding: 8px;
             box-sizing: border-box;
             transition: all 0.3s ease;
             position: relative;
@@ -497,12 +498,9 @@
         }
         
         /* Show dropdown on hover or when active class is applied by JS */
-        .filter-selector:hover .filter-dropdown,
         .filter-selector.active .filter-dropdown {
             display: block;
         }
-
-        .currency-selector:hover .currency-dropdown,
         .currency-selector.active .currency-dropdown {
             display: block;
         }
