@@ -17,7 +17,7 @@
         }
 
         /* Header styling with a logo, navigation, and a subtle drop shadow */
-        .header {
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -38,22 +38,29 @@
             padding-left: 20px;
         }
 
-        /* Navigation links */
+         /* Navigation links */
         .nav-links {
             display: flex;
-            align-items: transition: color 0.3s ease;
-            cursor: pointer; /* Added cursor to indicate interactivity */
+            align-items: center;
+            gap: 15px; /* Added cursor to indicate interactivity */
+        }
+
+        .nav-links a {
+            color: #3e2f2e;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            cursor: pointer;
         }
         
         .nav-links a:hover {
-            color: #c96c4d; /* Warm burnt orange on hover */
+            color: #c96c4d;/* Warm burnt orange on hover */
         }
 
         /* --- Cart Icon Styling --- */
         /* Container for the new cart icon, making it a subtle circle button */
         .cart-link {
             margin-left: 20px;
-            padding: 8px;
             border: 1px solid #3e2f2e;
             border-radius: 50%;
             display: flex;
@@ -101,8 +108,7 @@
             justify-content: center;
             align-items: center;
             font-size: 12px;
-            font-weight: bold;
-            display: none; /* Hide by default */
+            font-weight: bold; 
         }
 
         /* Hero section - the main, eye-catching part of the page */
@@ -150,7 +156,7 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        .shop-now-button:hover {
+        .cta-button:hover {
             background-color: #a6583d; /* Darken the color on hover */
             transform: translateY(-2px); /* Add a subtle lift effect */
         }
@@ -403,7 +409,7 @@
 
         /* Responsive design for smaller screens */
         @media (max-width: 768px) {
-            .header {
+            .navbar {
                 flex-direction: column;
                 text-align: center;
             }
