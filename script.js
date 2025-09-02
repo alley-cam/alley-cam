@@ -2,7 +2,7 @@
     const pricesInUSD = {
         'Turtle Keychains': 0.94,
         'Dice Keychain': 0.63,
-        'Tennis Racket and Ball Keychain': 0.63,
+        'Tennis Racket & Ball Keychain': 0.63,
         'Exfoliating Gloves': 1.88,
         'Large Hair Bow': 3.13,
         'Cherry Lip Oil': 2.19,
@@ -314,5 +314,10 @@
         };
         // All function calls to make the swatches interactive
         setupColorSwatches('turtle-keychain-colors', 'turtle-keychain-image');
+        setupColorSwatches('bow-tie-bonnets-colors', 'bow-tie-bonnets-image');
+        setupColorSwatches('exfoliating-gloves-colors', 'exfoliating-gloves-image');
+        setupColorSwatches('large-hair-bow-colors', 'large-hair-bow-image');
+        setupColorSwatches('tote-bags-colors', 'tote-bags-image');
+        setupFlavourSwatches('vaseline-lip-therapy-balm-flavours', 'vaseline-lip-therapy-balm-image');
     });
 </script>
