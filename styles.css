@@ -19,7 +19,7 @@
         /* Header styling with a logo, navigation, and a subtle drop shadow */
         .navbar {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             padding: 10px 0;
             border-bottom: 2px solid #e9967a; /* Lighter border color */
@@ -409,7 +409,7 @@
 
         /* Responsive design for smaller screens */
         @media (max-width: 768px) {
-            .navbar {
+            .header {
                 flex-direction: column;
                 text-align: center;
             }
