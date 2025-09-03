@@ -103,32 +103,35 @@
             }, 500);
         }
 
-        // Click outside dropdowns to close them
-        document.addEventListener('click', (e) => {
-            const filterSelector = document.getElementById('filter-selector');
-            const currencySelector = document.getElementById('currency-selector');
-            
-            if (!filterSelector.contains(e.target)) {
-                filterSelector.classList.remove('active');
-            }
-            
-            if (!currencySelector.contains(e.target)) {
-                currencySelector.classList.remove('active');
-            }
-        });
-        // Filter and currency dropdown logic
-        const filterSelector = document.getElementById('filter-selector');
-        const currencySelector = document.getElementById('currency-selector');
-        const filterButton = filterSelector.querySelector('.filter-button');
-        const currencyButton = currencySelector.querySelector('.currency-button');
-        filterButton.addEventListener('click', (e) => {
-            e.stopPropagation();
-            filterSelector.classList.toggle('active');
-        });
-        currencyButton.addEventListener('click', (e) => {
-            e.stopPropagation();
-            currencySelector.classList.toggle('active');
-        });
+        // Function to handle dropdown toggling for any dropdown
+        const toggleDropdown = (button, dropdown) => {
+            button.addEventListener('click', (event) => {
+                event.stopPropagation();
+                dropdown.classList.toggle('active');
+            });
+
+            document.addEventListener('click', (event) => {
+                // Close the dropdown if the user clicks outside of it
+                if (!dropdown.contains(event.target) && !button.contains(event.target)) {
+                    dropdown.classList.remove('active');
+                }
+            });
+        };
+
+        // Select the specific dropdown containers and their buttons
+        const filterContainer = document.getElementById('filter-selector');
+        const currencyContainer = document.getElementById('currency-selector');
+
+        const filterButton = filterContainer.querySelector('.filter-button');
+        const filterDropdown = filterContainer.querySelector('.dropdown-content');
+
+        const currencyButton = currencyContainer.querySelector('.currency-button');
+        const currencyDropdown = currencyContainer.querySelector('.dropdown-content');
+
+        // Call the function for each dropdown
+        toggleDropdown(filterButton, filterDropdown);
+        toggleDropdown(currencyButton, currencyDropdown);
+        
         const conversionRates = {
             usd: 1,
             jmd: 160.39
@@ -137,17 +140,20 @@
         
         const currencyLinks = document.querySelectorAll('.currency-dropdown a');
         const updatePrices = () => {
-            const productCards = document.querySelectorAll('.card');
-            productCards.forEach(card => {
-                const productName = card.querySelector('h3').textContent.trim();
-                const priceElement = card.querySelector('.price');
-                const usdPrice = pricesInUSD[productName];
-                if (usdPrice !== undefined) {
-                    let convertedPrice = usdPrice * conversionRates[currentCurrency];
-                    let currencySymbol = currentCurrency === 'usd' ? '$' : 'JMD$';
-                    priceElement.textContent = `${currencySymbol}${convertedPrice.toFixed(2)}`;
-                }
-            });
+            const productGrid = document.querySelector('.products-grid');
+            if (productGrid) {
+                const productCards = productGrid.querySelectorAll('.card');
+                productCards.forEach(card => {
+                    const productName = card.querySelector('h3').textContent.trim();
+                    const priceElement = card.querySelector('.price');
+                    const usdPrice = pricesInUSD[productName];
+                    if (usdPrice !== undefined) {
+                        let convertedPrice = usdPrice * conversionRates[currentCurrency];
+                        let currencySymbol = currentCurrency === 'usd' ? '$' : 'JMD$';
+                        priceElement.textContent = `${currencySymbol}${convertedPrice.toFixed(2)}`;
+                    }
+               });
+            }
         };
 
         currencyLinks.forEach(link => {
@@ -272,52 +278,30 @@
         cancelOrderButton.addEventListener('click', () => {
             hideModal(confirmModal);
         });
-        // Color swatch functionality for products
-        const setupColorSwatches = (containerId, imageId) => {
+        // Consolidated function for both color and flavor swatches
+        const setupProductSwatches = (containerId, imageId, dataAttributeName) => {
             const container = document.getElementById(containerId);
             const image = document.getElementById(imageId);
             if (container && image) {
                 container.addEventListener('click', (e) => {
-                    const button = e.target.closest('.color-swatch');
-                    if (button) {
-                        // Remove active class from all swatches in this container
-                        Array.from(container.children).forEach(swatch => {
-                            swatch.classList.remove('active');
-                        });
-                        // Add active class to the clicked swatch
-                        button.classList.add('active');
-                        // Change the main product image based on the data-image attribute
-                        image.src = button.getAttribute('data-image');
-                        image.alt = `A ${button.getAttribute('data-color')} version of the product.`;
-                    }
-                });
-            }
-        };
-        // Flavour swatch functionally for products
-        const setupFlavourSwatches = (containerId, imageId) => {
-            const container = document.getElementById(containerId);
-            const image = document.getElementById(imageId);
-            if (container && image) {
-                container.addEventListener('click', (e) => {
-                    const button = e.target.closest('.flavour-swatch');
+                    const button = e.target.closest(`[data-${dataAttributeName}]`);
                     if (button) {
                         Array.from(container.children).forEach(swatch => {
                             swatch.classList.remove('active');
                         });
-                      
                         button.classList.add('active');
                         image.src = button.getAttribute('data-image');
-                        image.alt = `A ${button.getAttribute('data-flavour')} version of the product.`;
+                        image.alt = `A ${button.getAttribute(`data-${dataAttributeName}`)} version of the product.`;
                     }
-                });
-            }
-        };
-        // All function calls to make the swatches interactive
-        setupSwatches('turtle-keychain-colors', 'turtle-keychain-image');
-        setupSwatches('bow-tie-bonnets-colors', 'bow-tie-bonnets-image');
-        setupSwatches('exfoliating-gloves-colors', 'exfoliating-gloves-image');
-        setupSwatches('large-hair-bow-colors', 'large-hair-bow-image');
-        setupSwatches('tote-bags-colors', 'tote-bags-image');
-        setupSwatches('vaseline-lip-therapy-balm-flavours', 'vaseline-lip-therapy-balm-image');
+               });
+           }
+      };
+      // All function calls to make the swatches interactive
+      setupProductSwatches('turtle-keychain-colors', 'turtle-keychain-image', 'color');
+      setupProductSwatches('bow-tie-bonnets-colors', 'bow-tie-bonnets-image', 'color');
+      setupProductSwatches('exfoliating-gloves-colors', 'exfoliating-gloves-image', 'color');
+      setupProductSwatches('large-hair-bow-colors', 'large-hair-bow-image', 'color');
+      setupProductSwatches('tote-bags-colors', 'tote-bags-image', 'color');
+      setupProductSwatches('vaseline-lip-therapy-balm-flavours', 'vaseline-lip-therapy-balm-image', 'flavour');
     });
 </script>
