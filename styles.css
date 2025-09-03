@@ -33,11 +33,6 @@
             z-index: 1000;
         }
 
-        .logo img {
-            max-height: 25px;
-            width: auto;
-        }
-
         /* Logo text style */
         .logo {
             font-family: 'Playfair Display', serif; /* Changed font to Playfair Display */
@@ -97,7 +92,6 @@
         /* Styling for the cart icon itself */
         .cart-icon {
             width: 16px;
-            position: relative;
             height: 16px;
             fill: #3e2f2e;
             transition: fill 0.3s ease;
@@ -132,11 +126,6 @@
             border-radius: 8px;
             margin-bottom: 40px;
             position: relative;
-            /* New flexbox properties for image and text arrangement */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
             margin-top: 50px;
         }
 
@@ -145,6 +134,7 @@
             flex direction: column;
             align-items: center;
             gap: 20px;
+        }
 
         /* Hero text styling */
         .hero-content h1 {
@@ -192,7 +182,7 @@
             display: flex;
             flex-direction: row; /* Ensure horizontal layout */
             flex-wrap: wrap; /* Allow wrapping on small screens */
-            justify-content: space-around;
+            justify-content: center;
             gap: 20px;
         }
         
@@ -212,18 +202,11 @@
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             padding: 20px;
-            flex: 1 1 300px; /* Allow cards to grow and shrink responsively */
+            flex: 0 0 250px; /* Allow cards to grow and shrink responsively */
             text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-        }
-        
-        /* New styling to control card width for a more uniform look */
-        .home-products-grid .card {
-            width: calc(33.333% - 20px); /* Adjust width for 3 cards per row with gap */
-            max-width: 300px;
-            flex: none; /* Override the default flex behavior to use explicit width */
         }
 
         .card img {
@@ -256,7 +239,8 @@
             border: none;
         }
 
-        .add-to-cart-button:hover {
+        .add-to-cart-button:hover, 
+        .add-to-cart-button:focus {
             background-color: #a6583d;
         }
         
@@ -445,10 +429,6 @@
                 flex-direction: column;
                 align-items: center;
             }
-            /* Make cards full width on mobile */
-            .home-products-grid .card {
-                width: 100%;
-            }
         }
 
         /* New styles for the filter and currency buttons */
@@ -459,7 +439,8 @@
             margin-bottom: 20px;
         }
 
-        .filter-button, .currency-button {
+        .filter-button,
+        .currency-button {
             background-color: #c96c4d;
             color: #fff;
             border: none;
@@ -470,17 +451,22 @@
             transition: background-color 0.3s ease;
         }
 
-        .filter-button:hover, .currency-button:hover {
+        .filter-button:hover, 
+        .currency-button:hover
+        .filter-button:focus,
+        .currency-button:focus {
             background-color: #a6583d;
         }
         
         /* Filter and Currency Dropdown Base Styles */
-        .filter-selector, .currency-selector {
+        .filter-selector, 
+        .currency-selector {
             position: relative;
             display: inline-block;
         }
         
-        .filter-dropdown, .currency-dropdown {
+        .filter-dropdown, 
+        .currency-dropdown {
             display: none;
             position: absolute;
             background-color: #fdf7e9;
@@ -493,22 +479,22 @@
             top: 100%; /* Position below the button */
         }
         
-        .filter-dropdown a, .currency-dropdown a {
+        .filter-dropdown a, 
+        .currency-dropdown a {
             color: #3e2f2e;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
         }
         
-        .filter-dropdown a:hover, .currency-dropdown a:hover {
+        .filter-dropdown a:hover, 
+        .currency-dropdown a:hover {
             background-color: #e9967a;
             color: #fff;
         }
         
         /* Show dropdown on hover or when active class is applied by JS */
-        .filter-selector.active .filter-dropdown {
-            display: block;
-        }
+        .filter-selector.active .filter-dropdown,
         .currency-selector.active .currency-dropdown {
             display: block;
         }
@@ -579,7 +565,7 @@
         }
 
         /* New styles for the color swatches */
-        .color-options {
+        .color-options, .flavour-options {
             display: flex;
             justify-content: center;
             gap: 10px;
@@ -587,7 +573,7 @@
             margin-bottom: 10px;
         }
         
-        .color-swatch {
+        .color-swatch, .flavour-swatch {
             width: 25px;
             height: 25px;
             border-radius: 50%;
@@ -598,38 +584,11 @@
             z-index: 10;
         }
 
-        .color-swatch:hover {
+        .color-swatch:hover, .flavour-swatch:hover {
             transform: scale(1.1);
         }
 
-        .color-swatch.active { /* Highlight the active swatch */
+        .color-swatch.active, .flavour-swatch.active { /* Highlight the active swatch */
             box-shadow: 0 0 0 2px #c96c4d; /* Add a subtle glow */
-        }
-         /* New styles for the flavour swatches */
-        .flavour-options {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-
-        .flavour-swatch {
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            border: 2px solid transparent;
-            cursor: pointer;
-            transition: border-color 0.2s ease, transform 0.2s ease;
-            position: relative;
-            z-index: 10;
-        }
-
-        .flavour-swatch:hover {
-            transform: scale(1.1);
-        }
-
-        .flavour-swatch.active {
-            box-shadow: 0 0 0 2px #c96c4d;
         }
     </style>
