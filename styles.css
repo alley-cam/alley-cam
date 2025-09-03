@@ -170,15 +170,15 @@
         }
 
         /* Main content sections with flexible display for multiple items */
-        .main-content {
+        .product-grid {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             flex-wrap: wrap;
             gap: 20px;
         }
 
         /* New class for the horizontal layout on the home page */
-        .home-products-grid {
+        .products-grid {
             display: flex;
             flex-direction: row; /* Ensure horizontal layout */
             flex-wrap: wrap; /* Allow wrapping on small screens */
@@ -425,7 +425,7 @@
                 font-size: 2.5em;
             }
             /* Stack home page cards vertically on small screens */
-            .home-products-grid {
+            .products-grid {
                 flex-direction: column;
                 align-items: center;
             }
