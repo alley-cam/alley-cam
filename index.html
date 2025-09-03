@@ -36,7 +36,7 @@
         
         <div class="container main-content">
             <h2 class="products-heading">Featured Products</h2>
-            <div class="home-products-grid">
+            <div class="products-grid">
                 <div class="card">
                     <div>
                         <img src="images/IMG_0405.JPG" alt="A vibrant pink stylish tote bag.">
@@ -66,24 +66,24 @@
     <div id="shop-all-section" style="display: none;">
         <div class="container">
             <div class="shop-controls">
-                <div class="filter-selector" id="filter-selector">
+                <div class="dropdown-container" id="filter-selector">
                     <button class="filter-button">Filter By</button>
-                    <div class="filter-dropdown">
-                        <a href="#" data-filter="product">By Product</a>
-                        <a href="#" data-filter="price">By Price</a>
-                    </div>
+                    <ul class="dropdown-content">
+                        <li><a href="#" data-filter="product">By Product</a></li>
+                        <li><a href="#" data-filter="price">By Price</a></li>
+                    </ul>
                 </div>
                 
-                <div class="currency-selector" id="currency-selector">
+                <div class="dropdown-container" id="currency-selector">
                     <button class="currency-button">JMD</button>
-                    <ul class="currency-dropdown">
+                    <ul class="dropdown-content">
                         <li><a href="#" data-currency="jmd">JMD</a></li>
                         <li><a href="#" data-currency="usd">USD</a></li>
                     </ul>
                 </div>
             </div>
             <h2 class="products-heading">Our Full Collection</h2>
-            <div class="main-content">
+            <div class="products-grid">
                 <div class="card">
                     <img id="turtle-keychain-image" src="images/img_0397.jpg" alt="A blue turtle keychain.">
                     <h3>Turtle Keychains</h3>
