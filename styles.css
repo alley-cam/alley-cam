@@ -53,6 +53,8 @@
             display: flex;
             align-items: center;
             gap: 20px; /* Added cursor to indicate interactivity */
+            justify-content: flex-end;
+            width: 100%;
         }
 
         .nav-links a {
@@ -124,7 +126,7 @@
         /* Hero section - the main, eye-catching part of the page */
         .hero {
             text-align: center;
-            padding: 40px 20px;
+            padding: 80px 20px;
             background-color: #fdf7e9; /* Changed back to match header color */
             color: #3e2f2e; /* Changed to a darker color for readability */
             border-radius: 8px;
