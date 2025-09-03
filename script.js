@@ -131,7 +131,7 @@
         });
         const conversionRates = {
             usd: 1,
-            jmd: 155.00 
+            jmd: 160.39
         };
         let currentCurrency = 'jmd'; 
         
@@ -313,11 +313,11 @@
             }
         };
         // All function calls to make the swatches interactive
-        setupColorSwatches('turtle-keychain-colors', 'turtle-keychain-image');
-        setupColorSwatches('bow-tie-bonnets-colors', 'bow-tie-bonnets-image');
-        setupColorSwatches('exfoliating-gloves-colors', 'exfoliating-gloves-image');
-        setupColorSwatches('large-hair-bow-colors', 'large-hair-bow-image');
-        setupColorSwatches('tote-bags-colors', 'tote-bags-image');
-        setupFlavourSwatches('vaseline-lip-therapy-balm-flavours', 'vaseline-lip-therapy-balm-image');
+        setupSwatches('turtle-keychain-colors', 'turtle-keychain-image');
+        setupSwatches('bow-tie-bonnets-colors', 'bow-tie-bonnets-image');
+        setupSwatches('exfoliating-gloves-colors', 'exfoliating-gloves-image');
+        setupSwatches('large-hair-bow-colors', 'large-hair-bow-image');
+        setupSwatches('tote-bags-colors', 'tote-bags-image');
+        setupSwatches('vaseline-lip-therapy-balm-flavours', 'vaseline-lip-therapy-balm-image');
     });
 </script>
