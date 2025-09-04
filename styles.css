@@ -424,7 +424,7 @@
                 text-align: center;
             }
             .nav-links {
-                display: flex
+                display: flex;
                 flex-direction: column;
                 margin-top: 10px;
             }
@@ -462,7 +462,7 @@
         }
 
         .filter-button:hover, 
-        .currency-button:hover
+        .currency-button:hover,
         .filter-button:focus,
         .currency-button:focus {
             background-color: #a6583d;
