@@ -104,17 +104,10 @@
         }
 
         // Function to handle dropdown toggling for any dropdown
-        const toggleDropdown = (button, dropdown) => {
+        const toggleDropdown = (button, container) => {
             button.addEventListener('click', (event) => {
                 event.stopPropagation();
-                dropdown.classList.toggle('active');
-            });
-
-            document.addEventListener('click', (event) => {
-                // Close the dropdown if the user clicks outside of it
-                if (!dropdown.contains(event.target) && !button.contains(event.target)) {
-                    dropdown.classList.remove('active');
-                }
+                container.classList.toggle('active');
             });
         };
 
@@ -129,8 +122,14 @@
         const currencyDropdown = currencyContainer.querySelector('.dropdown-content');
 
         // Call the function for each dropdown
-        toggleDropdown(filterButton, filterDropdown);
-        toggleDropdown(currencyButton, currencyDropdown);
+        toggleDropdown(filterButton, filterContainer);
+        toggleDropdown(currencyButton, currencyContainer);
+
+        document.addEventListener('click', (event) => {
+            document.querySelectorAll('.dropdown-content').forEach((dropdown) => {
+                dropdown.classList.remove('active');
+            });
+        });
         
         const conversionRates = {
             usd: 1,
