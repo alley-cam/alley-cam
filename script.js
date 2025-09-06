@@ -103,13 +103,6 @@
             }, 500);
         }
 
-        // Function to handle dropdown toggling for any dropdown
-        const toggleDropdown = (button, container) => {
-            button.addEventListener('click', (e) => {
-                e.stopPropagation();
-                container.classList.toggle('active');
-            });
-        };
 
         // Select the specific dropdown containers and their buttons
         const filterContainer = document.getElementById('filter-selector');
@@ -118,16 +111,37 @@
         const filterButton = filterContainer.querySelector('.filter-button');
         const currencyButton = currencyContainer.querySelector('.currency-button');
 
-        const filterDropdown = currencyContainer.querySelector('.dropdown-content');
+        const filterDropdown = filterContainer.querySelector('.dropdown-content');
         const currencyDropdown = currencyContainer.querySelector('.dropdown-content');
+
+        const toggleDropdown = (button, container,dropdown) => {
+            button.addEventListener('click', (e) => {
+                e.stopPropagation();
+                container.classList.toggle('active');
+                dropdown.classList.toggle('active')
+            });
+        };
+
+        document.addEventListener('click', (event) => {
+            if (!filterContainer.contains(event.target) && 
+        filterContainer.classList.contains('active')) {
+
+        filterContainer.classList.remove('active');
+                filterDropdown.classList.remove('active');
+            }
+            if (!currencyContainer.contains(event.target)
+        && currencyContainer.classList.contains('active'))
+        {
+
+        currencyContainer.classList.remove('active');
+
+        currencyDropdown.classList.remove('active');
+            }
+        });
 
         // Call the function for each dropdown
         toggleDropdown(filterButton, filterContainer);
         toggleDropdown(currencyButton, currencyContainer);
-
-        document.addEventListener('click', () => {
-            document.querySelectorAll('.filter-selector,.currency-selector').forEach((el) => {
-                el.classList.remove('active');
             });
         });
         
