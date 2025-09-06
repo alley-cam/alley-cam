@@ -504,8 +504,8 @@
         }
         
         /* Show dropdown on hover or when active class is applied by JS */
-        .filter-selector.active .filter-dropdown,
-        .currency-selector.active .currency-dropdown {
+        .filter-selector.active .dropdown-content,
+        .currency-selector.active .dropdown-content {
             display: block;
         }
 
