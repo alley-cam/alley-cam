@@ -17,6 +17,22 @@
         'Flower Claw Clips': 7.50,
         'Tote Bags': 14.07,
     };
+
+    const outputDiv =
+    document.getElementById('output');
+
+    if (outputDiv) {
+        for (const item in priceInUSD)
+            const price = priceInUSD[item];
+            const outputLine = 
+    document.createElement('p');
+            outputLine.textContent = `${item}:
+    $${price.toFixed(2)}`
+            outputDiv.appendChild(outputLine);
+        }
+    } else {
+        console.error("Error: element with id 'output' not found.");
+    }
     
     document.addEventListener('DOMContentLoaded', () => {
         // Get references to all the sections and navigation links
