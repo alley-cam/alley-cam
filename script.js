@@ -105,8 +105,8 @@
 
         // Function to handle dropdown toggling for any dropdown
         const toggleDropdown = (button, container) => {
-            button.addEventListener('click', (event) => {
-                event.stopPropagation();
+            button.addEventListener('click', (e) => {
+                e.stopPropagation();
                 container.classList.toggle('active');
             });
         };
@@ -116,18 +116,18 @@
         const currencyContainer = document.getElementById('currency-selector');
 
         const filterButton = filterContainer.querySelector('.filter-button');
-        const filterDropdown = filterContainer.querySelector('.dropdown-content');
-
         const currencyButton = currencyContainer.querySelector('.currency-button');
+
+        const filterDropdown = currencyContainer.querySelector('.dropdown-content');
         const currencyDropdown = currencyContainer.querySelector('.dropdown-content');
 
         // Call the function for each dropdown
         toggleDropdown(filterButton, filterContainer);
         toggleDropdown(currencyButton, currencyContainer);
 
-        document.addEventListener('click', (event) => {
-            document.querySelectorAll('.dropdown-content').forEach((dropdown) => {
-                dropdown.classList.remove('active');
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.filter-selector,.currency-selector').forEach((el) => {
+                el.classList.remove('active');
             });
         });
         
