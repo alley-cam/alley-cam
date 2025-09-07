@@ -1,3 +1,4 @@
+
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const pricesInUSD = {
@@ -316,5 +317,18 @@
             setupProductSwatches('large-hair-bow-colors', 'large-hair-bow-image', 'color');
             setupProductSwatches('tote-bags-colors', 'tote-bags-image', 'color');
             setupProductSwatches('vaseline-lip-therapy-balm-flavours', 'vaseline-lip-therapy-balm-image', 'flavour');
+
+            const hamburger = document.getElementById('hamburger-menu');
+            const sidebar = document.getElementById('sidebar-menu');
+
+            hamburger.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+            });
+
+            document.queryselectorAll('.sidebar-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    sidebar.classList.remove('active');
+                });
+            });
         });
     </script>
