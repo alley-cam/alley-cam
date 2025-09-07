@@ -43,6 +43,7 @@
         .logo {
             text-decoration: none;
             padding-left: 20px;
+            margin: 0;
         }
 
          /* Navigation links */
@@ -73,6 +74,7 @@
             cursor: pointer;
             padding: 15px;
             z-index: 1001;
+            order: 2;
         }
 
         .hamburger .bar {
@@ -454,7 +456,8 @@
             .navbar {
                 padding: 5px 2%;
                 flex-direction: row;
-                text-align: center;
+                justify-content: space-between;
+                align-items: center;
             }
          
             .nav-links {
@@ -463,14 +466,12 @@
          
             .hamburger {
                 display:block
+                order: 2;
             }
          
-            .nav-links a {
-                margin: 0 10px;
-                display: block;
-                width: 100%;
-                padding: 8px 0;
-                border-bottom: 2px solid #e9967a;
+            .cart-link {
+                display: none;
+   
             }
          
             .hero-section h1 {
@@ -490,6 +491,7 @@
 
             .cart-link {
                 margin: 10px auto;
+                display: none;
             }
         }
 
