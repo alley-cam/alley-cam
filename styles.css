@@ -83,7 +83,7 @@
             transition: all 0.3s ease-in-out;
         }
 
-        sidebar-menu {
+        .sidebar-menu {
            position: fixed;
            top: 0;
            left: -250px;
@@ -453,7 +453,7 @@
         @media (max-width: 768px) {
             .navbar {
                 padding: 5px 2%;
-                flex-direction: column;
+                flex-direction: row;
                 text-align: center;
             }
          
@@ -461,7 +461,7 @@
                 display: none;
             }
          
-            .hamburgr {
+            .hamburger {
                 display:block
             }
          
