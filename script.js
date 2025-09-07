@@ -325,7 +325,7 @@
                 sidebar.classList.toggle('active');
             });
 
-            document.queryselectorAll('.sidebar-link').forEach(link => {
+            document.querySelectorAll('.sidebar-link').forEach(link => {
                 link.addEventListener('click', () => {
                     sidebar.classList.remove('active');
                 });
