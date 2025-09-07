@@ -21,10 +21,10 @@
     document.addEventListener('DOMContentLoaded', () => {
     const outputDiv = document.getElementById('output');
     if (outputDiv) {
-        for (const item in priceInUSD)
-            const price = priceInUSD[item];
+        for (const item in pricesInUSD) {
+            const price = pricesInUSD[item];
             const outputLine = document.createElement('p');
-            outputLine.textContent = `${item}: $${price.toFixed(2)}`
+            outputLine.textContent = `${item}: $${price.toFixed(2)}`;
             outputDiv.appendChild(outputLine);
         }
     } else {
