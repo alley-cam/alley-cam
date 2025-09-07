@@ -409,22 +409,24 @@
         /* Responsive design for smaller screens */
         @media (max-width: 768px) {
             .navbar {
+                padding: 5px 2%;
                 flex-direction: column;
                 text-align: center;
             }
             .nav-links {
                 display: flex;
+                gap: 10px;
                 flex-direction: column;
                 margin-top: 10px;
             }
             .nav-links a {
                 margin: 0 10px;
                 display: block;
-                width: 100%
+                width: 100%;
                 padding: 8px 0;
                 border-bottom: 2px solid #e9967a;
             }
-            .hero h1 {
+            .hero-section h1 {
                 font-size: 2.5em;
                 text-align: center;
             }
@@ -437,7 +439,7 @@
             .hero-image {
               width: 100%;
               height: auto;
-              margin-bottom: 20px
+              margin-bottom: 20px;
             }
         }
 
@@ -489,16 +491,14 @@
             top: 100%; /* Position below the button */
         }
         
-        .filter-dropdown a, 
-        .currency-dropdown a {
+        .filter-dropdown a, .currency-dropdown a {
             color: #3e2f2e;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
         }
         
-        .filter-dropdown a:hover, 
-        .currency-dropdown a:hover {
+        .filter-dropdown a:hover,  .currency-dropdown a:hover {
             background-color: #e9967a;
             color: #fff;
         }
@@ -513,7 +513,7 @@
         .modal {
             display: none;
             position: fixed;
-            z-index: 10;
+            z-index: 2000;
             left: 0;
             top: 0;
             width: 100%;
@@ -599,6 +599,6 @@
         }
 
         .color-swatch.active, .flavour-swatch.active { /* Highlight the active swatch */
-            box-shadow: 0 0 0 2px #c96c4d; /* Add a subtle glow */
+            border: 2px solid #c96c4d; /* Add a subtle glow */
         }
     </style>
