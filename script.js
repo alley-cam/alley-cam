@@ -154,7 +154,7 @@
             };
             let currentCurrency = 'jmd'; 
         
-            const currencyLinks = document.querySelectorAll('.currency-dropdown     
+            const currencyLinks = document.querySelectorAll('#currency-selector .dropdown-content a');    
             const updatePrices = () => {
                 const productGrid = document.querySelector('.products-grid');
                 if (productGrid) {
