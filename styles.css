@@ -471,7 +471,7 @@
             }
          
             .hamburger {
-                display:block
+                display: block;
                 order: 2;
             }
          
@@ -484,6 +484,8 @@
             }
 
             .sidebar-menu {
+                position: fixed;
+                top: 0;
                 left: -250px;
                 transition: left 0.3s ease-in-out;
             }
