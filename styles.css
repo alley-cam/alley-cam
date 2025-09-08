@@ -19,9 +19,9 @@
 
         /* Header styling with a logo, navigation, and a subtle drop shadow */
         .navbar {
-            background-color: #fdf7e9;
+            background-color: #fa86c4;
             padding: 5px 5%;
-            border-bottom: 2px solid #e9967a;
+            border-bottom: 2px solid #915f6d;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             display: flex;
             justify-content: space-between;
@@ -41,9 +41,19 @@
 
         /* Logo text style */
         .logo {
+            display: flex;
+            align-items: center;
+            background: #fdf7e9;
+            gap: 15px;
             text-decoration: none;
             padding-left: 0;
             margin-right: auto;
+        }
+
+        .logo h1 {
+            font-size: 1.5em;
+            margin: 0;
+            color: black;
         }
 
          /* Navigation links */
@@ -91,7 +101,7 @@
            left: -250px;
            width: 250px;
            height: 100%;
-           background-color: #fdf7e9;
+           background-color: #fa86c4;
            padding: 20px;
            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
            transition: left 0.3s ease-in-out;
@@ -105,10 +115,10 @@
         }
 
         .sidebar-menu a {
-            color: #3e2f2e
+            color: #f0dddf
             text-decoration: none;
             padding: 15px 0;
-            border-bottom: 1px solid #e9967a;
+            border-bottom: 1px solid #915f6d;
         }
 
         /* --- Cart Icon Styling --- */
@@ -122,7 +132,7 @@
             height: 50px;
             cursor: pointer;
             z-index: 2000;
-            border: 1px solid #3e2f2e;
+            border: 1px solid #915f6d;
             border-radius: 50%;
             padding: 8px;
             box-sizing: border-box;
@@ -141,7 +151,7 @@
         .cart-icon {
             width: 24px;
             height: 24px;
-            fill: #3e2f2e;
+            fill: #915f6d;
             transition: fill 0.3s ease;
             display: block;
         }
@@ -170,7 +180,7 @@
         .hero-section {
             text-align: center;
             padding: 80px 20px;
-            background-color: #fdf7e9; /* Changed back to match header color */
+            background-color: #ffa86c4; /* Changed back to match header color */
             color: #3e2f2e; /* Changed to a darker color for readability */
             border-radius: 8px;
             margin-bottom: 40px;
@@ -297,11 +307,11 @@
         .footer {
             text-align: center; /* Reverted to 'center' */
             padding: 20px;
-            border-top: 2px solid #e9967a; /* Lighter border color */
+            border-top: 2px solid #915f6d; /* Lighter border color */
             margin-top: 40px;
             font-size: 0.9em;
             color: #333; /* Dark text for readability */
-            background-color: #fdf7e9; /* Changed to match the header color */
+            background-color: #fa86c4; /* Changed to match the header color */
         }
         
         /* New social links styling for the footer */
