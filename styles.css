@@ -459,7 +459,7 @@
                 justify-content: space-between;
                 align-items: center;
                 width: 100%
-                box-shadow: border-box;
+                box-sizing: border-box;
             }
 
             .logo {
@@ -477,8 +477,10 @@
          
             .cart-link {
                 display: none;
-   
             }
+
+            .cart {
+                display: none;
 
             .sidebar-menu {
                 left: -250px;
