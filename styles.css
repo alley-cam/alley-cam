@@ -507,7 +507,7 @@
 
         @media (min-width: 769px) {
             .sidebar-menu {
-                display: none !important;
+                display: none;
             }
         }
 
@@ -546,7 +546,7 @@
         }
         
         .filter-selector .dropdown-content, 
-        .currency-dropdown .dropdown-content {
+        .currency-selector .dropdown-content {
             display: none;
             position: absolute;
             background-color: #fdf7e9;
