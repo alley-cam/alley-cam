@@ -53,7 +53,7 @@
         .logo h1 {
             font-size: 1.5em;
             margin: 0;
-            color: black;
+            color: #3e2f2e;
         }
 
          /* Navigation links */
@@ -214,7 +214,7 @@
         .cta-button {
             display: inline-block;
             padding: 15px 30px;
-            background-color: #c96c4d; /* Use the burnt orange accent color */
+            background-color: #3e2f2e; /* Use the burnt orange accent color */
             color: #fff;
             text-decoration: none;
             border-radius: 5px;
@@ -225,7 +225,7 @@
         }
 
         .cta-button:hover {
-            background-color: #a6583d; /* Darken the color on hover */
+            background-color: #3e2e2e; /* Darken the color on hover */
             transform: translateY(-2px); /* Add a subtle lift effect */
         }
 
@@ -250,7 +250,7 @@
 
         /* Individual content cards for products or features */
         .card {
-            background-color: #3e2f2e;
+            background-color: #f0dddf;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             padding: 20px;
