@@ -538,7 +538,7 @@
             display: inline-block;
         }
         
-        .filter-slector .dropdown-content, 
+        .filter-selector .dropdown-content, 
         .currency-dropdown .dropdown-content {
             display: none;
             position: absolute;
@@ -560,8 +560,8 @@
             display: block;
         }
         
-        .filter-selector .dropdown a:hover,  
-        .currency-selector .dropdown a:hover {
+        .filter-selector .dropdown-content a:hover,  
+        .currency-selector .dropdown-content a:hover {
             background-color: #e9967a;
             color: #fff;
         }
