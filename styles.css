@@ -472,6 +472,7 @@
          
             .hamburger {
                 display: block;
+                margin-left: auto;
                 order: 2;
             }
          
