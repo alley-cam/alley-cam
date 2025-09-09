@@ -43,7 +43,7 @@
         .logo {
             display: flex;
             align-items: center;
-            background: #f5f5dc;
+            background: #fffafa;
             gap: 15px;
             text-decoration: none;
             padding-left: 0;
@@ -53,7 +53,7 @@
         .logo h1 {
             font-size: 1.5em;
             margin: 0;
-            color: #3e2f2e;
+            color: #554a40;
         }
 
          /* Navigation links */
@@ -249,7 +249,7 @@
 
         /* Individual content cards for products or features */
         .card {
-            background-color: #fdf5e6;
+            background-color: #fff0f5;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             padding: 20px;
@@ -310,7 +310,7 @@
             margin-top: 40px;
             font-size: 0.9em;
             color: #554a40; /* Dark text for readability */
-            background-color: #faebd7; /* Changed to match the header color */
+            background-color: #fffafa; /* Changed to match the header color */
         }
         
         /* New social links styling for the footer */
@@ -333,7 +333,7 @@
         }
         
         .social-links a:hover {
-            color: #c96c4d; /* Match the accent color */
+            color: #554a40 /* Match the accent color */
         }
         
         /* New styling for image-based social media logos */
@@ -359,7 +359,7 @@
         .social-links-home {
             text-align: center;
             padding: 20px;
-            background-color: #faebd7;
+            background-color: #fffafa;
             border-radius: 8px;
             margin-top: 20px;
         }
