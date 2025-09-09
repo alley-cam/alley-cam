@@ -5,7 +5,7 @@
             margin: 0;
             padding: 0;
             background-color: #8ea58c; /* Changed to an extremely light pink */
-            color: #333; /* Text color changed to dark for readability */
+            color: #ffe984; /* Text color changed to dark for readability */
             line-height: 1.6;
         }
 
@@ -19,9 +19,9 @@
 
         /* Header styling with a logo, navigation, and a subtle drop shadow */
         .navbar {
-            background-color: #054d24;
+            background-color: #8a9a5b;
             padding: 5px 5%;
-            border-bottom: 2px solid #915f6d;
+            border-bottom: 2px solid #b38481;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             display: flex;
             justify-content: space-between;
@@ -43,7 +43,7 @@
         .logo {
             display: flex;
             align-items: center;
-            background: #054d24;
+            background: #8a9a5b;
             gap: 15px;
             text-decoration: none;
             padding-left: 0;
@@ -150,7 +150,7 @@
         .cart-icon {
             width: 24px;
             height: 24px;
-            fill: #915f6d;
+            fill: #b38481;
             transition: fill 0.3s ease;
             display: block;
         }
@@ -179,7 +179,7 @@
         .hero-section {
             text-align: center;
             padding: 80px 20px;
-            background-color: #8ea58c; /* Changed back to match header color */
+            background-color: #8a9a5b; /* Changed back to match header color */
             color: #3e2f2e; /* Changed to a darker color for readability */
             border-radius: 8px;
             margin-bottom: 40px;
@@ -213,7 +213,7 @@
         .cta-button {
             display: inline-block;
             padding: 15px 30px;
-            background-color: #8ea58c; /* Use the burnt orange accent color */
+            background-color: #b38481; /* Use the burnt orange accent color */
             color: #fff;
             text-decoration: none;
             border-radius: 5px;
@@ -306,11 +306,11 @@
         .footer {
             text-align: center; /* Reverted to 'center' */
             padding: 20px;
-            border-top: 2px solid #8ea58c; /* Lighter border color */
+            border-top: 2px solid #b38481; /* Lighter border color */
             margin-top: 40px;
             font-size: 0.9em;
             color: #333; /* Dark text for readability */
-            background-color: #f0dddf; /* Changed to match the header color */
+            background-color: #8a9a5b; /* Changed to match the header color */
         }
         
         /* New social links styling for the footer */
@@ -359,7 +359,7 @@
         .social-links-home {
             text-align: center;
             padding: 20px;
-            background-color: #f0dddf;
+            background-color: #8a9a5b;
             border-radius: 8px;
             margin-top: 20px;
         }
