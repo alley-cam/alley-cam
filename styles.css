@@ -225,7 +225,7 @@
         }
 
         .cta-button:hover {
-            background-color: #ff1493; /* Darken the color on hover */
+            background-color: #554a40; /* Darken the color on hover */
             transform: translateY(-2px); /* Add a subtle lift effect */
         }
 
@@ -307,11 +307,11 @@
         .footer {
             text-align: center; /* Reverted to 'center' */
             padding: 20px;
-            border-top: 2px solid #554a40; /* Lighter border color */
+            border-top: 2px solid #fffafa; /* Lighter border color */
             margin-top: 40px;
             font-size: 0.9em;
-            color: #554a40; /* Dark text for readability */
-            background-color: #fffafa; /* Changed to match the header color */
+            color: #fffafa; /* Dark text for readability */
+            background-color: #554a40; /* Changed to match the header color */
         }
         
         /* New social links styling for the footer */
@@ -324,7 +324,7 @@
         }
         
         .social-links a {
-            color: #554a40
+            color: #fffafa
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
@@ -360,7 +360,7 @@
         .social-links-home {
             text-align: center;
             padding: 20px;
-            background-color: #fffafa;
+            background-color: #554a40;
             border-radius: 8px;
             margin-top: 20px;
         }
