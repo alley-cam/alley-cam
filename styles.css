@@ -21,7 +21,7 @@
         .navbar {
             background-color: #f0dddf;
             padding: 5px 5%;
-            border-bottom: 2px solid #915f6d;
+            border-bottom: 2px solid #8ea58c;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             display: flex;
             justify-content: space-between;
@@ -213,7 +213,7 @@
         .cta-button {
             display: inline-block;
             padding: 15px 30px;
-            background-color: #3e2f2e; /* Use the burnt orange accent color */
+            background-color: #8ea58c; /* Use the burnt orange accent color */
             color: #fff;
             text-decoration: none;
             border-radius: 5px;
@@ -306,7 +306,7 @@
         .footer {
             text-align: center; /* Reverted to 'center' */
             padding: 20px;
-            border-top: 2px solid #915f6d; /* Lighter border color */
+            border-top: 2px solid #8ea58c; /* Lighter border color */
             margin-top: 40px;
             font-size: 0.9em;
             color: #333; /* Dark text for readability */
