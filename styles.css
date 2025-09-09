@@ -4,8 +4,8 @@
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #8ea58c; /* Changed to an extremely light pink */
-            color: #ffe984; /* Text color changed to dark for readability */
+            background-color: #f5f5dc; /* Changed to an extremely light pink */
+            color: #554a40; /* Text color changed to dark for readability */
             line-height: 1.6;
         }
 
@@ -19,9 +19,9 @@
 
         /* Header styling with a logo, navigation, and a subtle drop shadow */
         .navbar {
-            background-color: #8a9a5b;
+            background-color: #f5f5dc;
             padding: 5px 5%;
-            border-bottom: 2px solid #b38481;
+            border-bottom: 2px solid #554a40;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             display: flex;
             justify-content: space-between;
@@ -43,7 +43,7 @@
         .logo {
             display: flex;
             align-items: center;
-            background: #8a9a5b;
+            background: #f5f5dc;
             gap: 15px;
             text-decoration: none;
             padding-left: 0;
@@ -66,7 +66,7 @@
         }
 
         .nav-links a {
-            color: #3e2f2e;
+            color: #554a40;
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s ease;
@@ -90,7 +90,7 @@
         .hamburger .bar {
             width: 25px;
             height: 3px;
-            background-color: #3e2f2e;
+            background-color: f5f5dc;
             margin: 5px 0;
             transition: all 0.3s ease-in-out;
         }
@@ -114,7 +114,7 @@
         }
 
         .sidebar-menu a {
-            color: #f0dddf
+            color: #554a40
             text-decoration: none;
             padding: 15px 0;
             border-bottom: 1px solid #915f6d;
@@ -179,8 +179,8 @@
         .hero-section {
             text-align: center;
             padding: 80px 20px;
-            background-color: #8a9a5b; /* Changed back to match header color */
-            color: #3e2f2e; /* Changed to a darker color for readability */
+            background-color: #fff0f5; /* Changed back to match header color */
+            color: #554a40; /* Changed to a darker color for readability */
             border-radius: 8px;
             margin-bottom: 40px;
             position: relative;
@@ -213,7 +213,7 @@
         .cta-button {
             display: inline-block;
             padding: 15px 30px;
-            background-color: #b38481; /* Use the burnt orange accent color */
+            background-color: #ff69b4; /* Use the burnt orange accent color */
             color: #fff;
             text-decoration: none;
             border-radius: 5px;
@@ -224,7 +224,7 @@
         }
 
         .cta-button:hover {
-            background-color: #3e2e2e; /* Darken the color on hover */
+            background-color: #ff1493; /* Darken the color on hover */
             transform: translateY(-2px); /* Add a subtle lift effect */
         }
 
@@ -249,7 +249,7 @@
 
         /* Individual content cards for products or features */
         .card {
-            background-color: #f0dddf;
+            background-color: #fdf5e6;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             padding: 20px;
@@ -306,11 +306,11 @@
         .footer {
             text-align: center; /* Reverted to 'center' */
             padding: 20px;
-            border-top: 2px solid #b38481; /* Lighter border color */
+            border-top: 2px solid #554a40; /* Lighter border color */
             margin-top: 40px;
             font-size: 0.9em;
-            color: #333; /* Dark text for readability */
-            background-color: #8a9a5b; /* Changed to match the header color */
+            color: #554a40; /* Dark text for readability */
+            background-color: #eaddca; /* Changed to match the header color */
         }
         
         /* New social links styling for the footer */
@@ -323,7 +323,7 @@
         }
         
         .social-links a {
-            color: #3e2f2e;
+            color: #554a40
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
@@ -359,7 +359,7 @@
         .social-links-home {
             text-align: center;
             padding: 20px;
-            background-color: #8a9a5b;
+            background-color: #eaddca;
             border-radius: 8px;
             margin-top: 20px;
         }
