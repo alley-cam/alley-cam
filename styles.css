@@ -37,6 +37,7 @@
         .logo img {
           max-width: 60px;
           height: auto;
+          background: transparent;
         }
 
         /* Logo text style */
