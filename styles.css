@@ -88,16 +88,9 @@
             order: 2;
         }
 
-        .hamburger .bar {
-            width: 25px;
-            height: 3px;
-            background-color: f5f5dc;
-            margin: 5px 0;
-            transition: all 0.3s ease-in-out;
-        }
-
         .sidebar-menu {
-            display: none;
+            position: fixed;
+            right: -250px;
         }
 
         .sidebar-menu.active {
@@ -477,9 +470,23 @@
                 order: 3;
             }
 
+            .hamburger .bar {
+                width: 25px;
+                height: 3px;
+                background-color: f5f5dc;
+                margin: 5px 0;
+                transition: all 0.3s ease-in-out;
+            }
+
             .sidebar-menu {
+                position: fixed;
+                top: 0;
                 right: -250px;
+                width: 250px;
+                height: 100%;
+                background-color: #f0dddf;
                 transition: right 0.3s ease-in-out;
+                z-index: 1004;
             }
 
             .sidebar-menu.active {
@@ -487,7 +494,10 @@
             }
 
             .sidebar-menu a.sidebar-link {
-                display: block;
+                color: #554a40;
+                text-decoration: none;
+                padding: 15px 0;
+                border-bottom: 1px solid #915f6d;
             }
 
             .hero-section {
