@@ -4,7 +4,7 @@
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5dc; /* Changed to an extremely light pink */
+            background-color: #fffafa; /* Changed to an extremely light pink */
             color: #554a40; /* Text color changed to dark for readability */
             line-height: 1.6;
         }
@@ -19,7 +19,7 @@
 
         /* Header styling with a logo, navigation, and a subtle drop shadow */
         .navbar {
-            background-color: #f5f5dc;
+            background-color: #fffafa;
             padding: 5px 5%;
             border-bottom: 2px solid #554a40;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -177,7 +177,7 @@
 
         /* Hero section - the main, eye-catching part of the page */
         .hero-section {
-            text-align: center;
+            text-align: left;
             padding: 80px 20px;
             background-color: #fff0f5; /* Changed back to match header color */
             color: #554a40; /* Changed to a darker color for readability */
@@ -213,8 +213,8 @@
         .cta-button {
             display: inline-block;
             padding: 15px 30px;
-            background-color: #ff69b4; /* Use the burnt orange accent color */
-            color: #fff;
+            background-color: #554a40; /* Use the burnt orange accent color */
+            color: #fffafa;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
@@ -310,7 +310,7 @@
             margin-top: 40px;
             font-size: 0.9em;
             color: #554a40; /* Dark text for readability */
-            background-color: #eaddca; /* Changed to match the header color */
+            background-color: #faebd7; /* Changed to match the header color */
         }
         
         /* New social links styling for the footer */
@@ -359,7 +359,7 @@
         .social-links-home {
             text-align: center;
             padding: 20px;
-            background-color: #eaddca;
+            background-color: #faebd7;
             border-radius: 8px;
             margin-top: 20px;
         }
