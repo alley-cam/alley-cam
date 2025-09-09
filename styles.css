@@ -83,7 +83,7 @@
             border: none;
             cursor: pointer;
             padding: 15px;
-            z-index: 1001;
+            z-index: 1002;
             order: 2;
         }
 
@@ -98,19 +98,19 @@
         .sidebar-menu {
            position: fixed;
            top: 0;
-           left: -250px;
+           right: -250px;
            width: 250px;
            height: 100%;
            padding: 20px;
            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-           transition: left 0.3s ease-in-out;
+           transition: right 0.3s ease-in-out;
            z-index: 999;
            display: flex;
            flex-direction: column;
         }
 
         .sidebar-menu.active {
-            left: 0;
+            right: 0;
         }
 
         .sidebar-menu a {
@@ -482,15 +482,7 @@
             .hamburger {
                 display: block;
                 margin-left: auto;
-                order: 2;
-            }
-         
-            .cart-link {
-                display: none;
-            }
-
-            .cart {
-                display: none !important;
+                order: 3;
             }
 
             .sidebar-menu {
