@@ -486,12 +486,16 @@
             }
 
             .sidebar-menu {
-                left: -250px;
-                transition: left 0.3s ease-in-out;
+                right: -250px;
+                transition: right 0.3s ease-in-out;
             }
 
             .sidebar-menu.active {
-                left: 0;
+                right: 0;
+            }
+
+            .sidebar-menu a.sidebar-link {
+                display: block;
             }
 
             .hero-section {
@@ -508,6 +512,9 @@
 
         @media (min-width: 769px) {
             .sidebar-menu {
+                display: none;
+            }
+            .sidebar-menu a.sidebar-link {
                 display: none;
             }
         }
