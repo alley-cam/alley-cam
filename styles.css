@@ -467,7 +467,6 @@
             .hamburger {
                 display: block;
                 margin-left: auto;
-                order: 3;
             }
 
             .hamburger .bar {
@@ -486,7 +485,7 @@
                 height: 100%;
                 background-color: #f0dddf;
                 transition: right 0.3s ease-in-out;
-                z-index: 1004;
+                z-index: 2001;
             }
 
             .sidebar-menu.active {
