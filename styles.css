@@ -95,6 +95,7 @@
 
         .sidebar-menu.active {
             display: block;
+            right: 0;
         }
 
         .sidebar-menu a {
@@ -106,6 +107,10 @@
 
         /* --- Cart Icon Styling --- */
         /* Container for the new cart icon, making it a subtle circle button */
+        .cart {
+            order: 3;
+        } 
+
         .cart-link {
             position: relative;
             display: flex;
@@ -508,6 +513,10 @@
             .products-grid {
                 flex-direction: column;
                 align-items: center;
+            }
+
+            .cart {
+                order: initial;
             }
         }
 
