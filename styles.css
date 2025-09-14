@@ -457,7 +457,7 @@
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
-                width: 100%
+                width: 100%;
                 box-sizing: border-box;
             }
 
@@ -472,12 +472,13 @@
             .hamburger {
                 display: block;
                 margin-left: auto;
+                cursor: pointer;
             }
 
             .hamburger .bar {
                 width: 25px;
                 height: 3px;
-                background-color: f5f5dc;
+                background-color: #f5f5dc;
                 margin: 5px 0;
                 transition: all 0.3s ease-in-out;
             }
