@@ -164,6 +164,12 @@
             font-weight: bold; 
         }
 
+        @media (min-width: 1024px) {
+            .cart-link {
+                display: flex;
+            }
+        }
+
         /* Hero section - the main, eye-catching part of the page */
         .hero-section {
             text-align: left;
